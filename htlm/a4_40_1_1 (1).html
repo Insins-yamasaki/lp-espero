@@ -1,0 +1,2657 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UNGウォーターエンハンサー水処理システム - 日本語訳総合ガイドブック (A4縦・全40ページ完全対応版)</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- MathJax for LaTeX Rendering -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* A4縦サイズを厳密に定義 (横210mm x 縦297mm) */
+    .a4-container {
+      width: 210mm;
+      height: 297mm;
+      padding: 10mm 15mm;
+      margin: 1.5rem auto;
+      background: white;
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      border: 1px solid #e2e8f0;
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* 各コンテナ内の1カラム高さ制御用フレックスボックス */
+    .content-flow {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    /* 印刷時の設定 (A4 Portrait) */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+
+      html,
+      body {
+        width: 210mm !important;
+        height: auto !important;
+        /* 40ページ全体が出力されるようautoに変更 */
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+        /* 2ページ目以降を完全に印刷可能にする */
+        background: white !important;
+      }
+
+      .no-print {
+        display: none !important;
+      }
+
+      .a4-container {
+        width: 210mm !important;
+        /* ブラウザの端数ピクセル変換誤差による空改ページを回避するため、印刷時のみ高さを極微に縮小 */
+        height: 296mm !important;
+        padding: 10mm 15mm !important;
+        margin: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        page-break-after: always !important;
+        page-break-inside: avoid !important;
+        break-after: page !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+        /* 個々のコンテナ内の微細なはみ出しによる無駄な白紙改ページ発生を防止 */
+      }
+
+      main {
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-slate-100 text-slate-800 font-sans antialiased font-normal">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 w-full border-b border-slate-200 bg-white/95 backdrop-blur no-print">
+    <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3">
+        <span
+          class="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600 text-white font-bold text-xl">U</span>
+        <div>
+          <h1 class="text-sm sm:text-base font-bold text-slate-900 leading-tight">UNGウォーターエンハンサー水処理システム</h1>
+          <p class="text-[10px] sm:text-xs text-slate-500">オリジナル総合資料（全40ページ）完全対応日本語翻訳版</p>
+        </div>
+      </div>
+      <span
+        class="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-medium text-emerald-700 ring-1 ring-inset ring-emerald-600/10">全40P1対1対応（バグ修正版）</span>
+    </div>
+  </header>
+
+  <div class="mx-auto max-w-[1250px] px-4 py-6 sm:px-6 lg:px-8">
+    <div class="flex flex-col lg:flex-row gap-8">
+
+      <!-- Left Sidebar Navigation (40 Pages Grid) -->
+      <aside class="w-full lg:w-72 shrink-0 no-print">
+        <div class="sticky top-24 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+          <h2 class="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-2">
+            <i class="fa-solid fa-list-ol"></i> ページ別目次リスト (P.1〜40)
+          </h2>
+          <div class="grid grid-cols-4 gap-1.5 max-h-[60vh] overflow-y-auto pr-1 text-center font-mono">
+            <script>
+              const pageTitles = {
+                1: "表紙", 2: "製品ラインナップ①", 3: "製品ラインナップ②", 4: "GOF01基本仕様", 5: "公認認証ステータス",
+                6: "静電界の科学原理", 7: "5大技術的特徴", 8: "農業分野での効果", 9: "畜産業分野での効果", 10: "産業用設備での効果",
+                11: "住宅・居住分野での効果", 12: "水産養殖での効果", 13: "公認試験の概要", 14: "硬度・洗浄力検証", 15: "表面張力・導電率",
+                16: "抗菌試験：1次循環", 17: "抗菌試験：シャワー", 18: "冷却水実証レポート", 19: "実証：チコリー収量", 20: "チコリー吸肥：陽イオン",
+                21: "チコリー吸肥：陰イオン", 22: "実証：トマト生長", 23: "トマト品質・給排液分析", 24: "トマト葉・果実無機含有", 25: "生育比較：葉菜・果菜",
+                26: "収穫後鮮度・腐敗抑制", 27: "実証：バラ切り花延命", 28: "実証：播種幼根発達速度", 29: "実証：観葉植物生育", 30: "牛乳・イチゴ抗菌比較",
+                31: "実証：エビ養殖殺菌", 32: "アワビ養殖石灰沈着予防", 33: "景観池：壁面コケ藻類分解", 34: "公認：藻類クロロフィル分析", 35: "温水プールアオコ分解",
+                36: "配管内錆スケール定量的除去", 37: "設置実例構造一覧", 38: "寸法設計規格仕様表", 39: "設置施工3大マニュアル", 40: "結びと結語"
+              };
+              for (let i = 1; i <= 40; i++) {
+                document.write(`
+                  <a href="#page${i}" class="block rounded border border-slate-200 py-1 text-[11px] font-semibold text-slate-600 hover:bg-emerald-50 hover:text-emerald-800 transition-colors" title="${pageTitles[i]}">
+                    P.${i}
+                  </a>
+                `);
+              }
+            </script>
+          </div>
+          <div class="mt-4 border-t border-slate-100 pt-4">
+            <button onclick="window.print()"
+              class="w-full flex items-center justify-center gap-2 rounded-lg bg-emerald-600 py-2.5 text-xs font-semibold text-white hover:bg-emerald-700 transition-colors shadow-sm">
+              <i class="fa-solid fa-file-pdf"></i> A4縦型・全40P印刷保存
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content Area -->
+      <main class="flex-1">
+
+        <!-- PAGE 1 -->
+        <section id="page1" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 1</span>
+              <span class="text-xs text-slate-400 font-medium">表紙 / 総合タイトル</span>
+            </div>
+
+            <div class="text-center my-auto py-12">
+              <h3 class="text-xs sm:text-sm font-bold text-slate-400 uppercase tracking-widest mb-1">UNG WATER TREATMENT
+                SYSTEM</h3>
+              <div class="h-1.5 w-20 bg-emerald-500 mx-auto my-4"></div>
+
+              <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight my-6 leading-tight">
+                UNGウォーターエンハンサー<br>水処理システム
+              </h2>
+              <p class="text-lg text-slate-500 font-mono tracking-wide mb-8">
+                UNG Electrostatic Enhancement Water!
+              </p>
+
+              <div
+                class="inline-grid grid-cols-1 gap-3 text-center max-w-sm mx-auto bg-slate-50 p-6 rounded-xl border border-slate-100 text-sm shadow-sm">
+                <span class="font-extrabold text-emerald-700 text-lg uppercase tracking-wider">ELTES / UNG</span>
+                <span class="text-slate-600 font-medium">Skin & Hair PLUS CARE / UNG WATER SOFTENER</span>
+                <span class="font-extrabold text-slate-800 text-sm">U&G Technology Co., Ltd.</span>
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>最先端の高電圧静電界処理技術</span>
+              <span>U&Gテクノロジー公式日本語訳ガイドブック</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 2 -->
+        <section id="page2" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 2</span>
+              <span class="text-xs text-slate-400 font-medium">製品ラインナップ仕様 (1)</span>
+            </div>
+
+            <div class="my-auto space-y-4">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                主要製品ラインナップおよび技術仕様：大中口径およびフラット型</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                ウォーターエンハンサー水処理システムは、用途に応じた給水配管口径に合わせて複数のモデルクラスをラインナップしており、あらゆる施設条件に的確に調和します。
+              </p>
+
+              <div class="space-y-3 text-xs sm:text-sm">
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-150 shadow-sm space-y-1">
+                  <h4 class="font-bold text-slate-900 text-sm">■ 大口径 400A クラスモデル (&lt; 400A &gt;)</h4>
+                  <div class="grid grid-cols-2 gap-y-1 gap-x-4 text-slate-600 text-xs">
+                    <span>・適用接続配管口径: <strong>100A 〜 400A 配管</strong></span>
+                    <span>・内蔵電極構成数: <strong>1 〜 5枚</strong></span>
+                    <span>・電極間ギャップ: <strong>25 mm</strong></span>
+                    <span>・動作供給電源: <strong>AC 110V / 220V</strong></span>
+                  </div>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-150 shadow-sm space-y-1">
+                  <h4 class="font-bold text-slate-900 text-sm">■ 中口径 150A クラスモデル (&lt; 150A &gt;)</h4>
+                  <div class="grid grid-cols-2 gap-y-1 gap-x-4 text-slate-600 text-xs">
+                    <span>・適用接続配管口径: <strong>150A 配管</strong></span>
+                    <span>・内蔵電極構成数: <strong>2枚</strong></span>
+                    <span>・電極間ギャップ: <strong>25 mm</strong></span>
+                    <span>・動作供給電源: <strong>AC 110V / 220V</strong></span>
+                  </div>
+                </div>
+
+                <div class="p-3 bg-emerald-50/20 rounded-lg border border-emerald-100 shadow-sm space-y-1">
+                  <h4 class="font-bold text-emerald-950 text-sm">■ 貯水・浸水用フラット型モデル (&lt; Flat type &gt;)</h4>
+                  <div class="grid grid-cols-2 gap-y-1 gap-x-4 text-slate-655 text-xs">
+                    <span>・装置製品外寸: <strong>横 1.0 m × 縦 0.4 m</strong></span>
+                    <span>・内蔵電極構成数: <strong>25枚（多電極仕様）</strong></span>
+                    <span>・電極間ギャップ: <strong>17 mm</strong></span>
+                    <span>・給電仕様: <strong>AC 110/220V、または自立型太陽光パネル（ソーラーパワー）連動</strong></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>Skin Hair PLUS CARE / WATER SOFTENER</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 3 -->
+        <section id="page3" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 3</span>
+              <span class="text-xs text-slate-400 font-medium">製品ラインナップ仕様 (2)</span>
+            </div>
+
+            <div class="my-auto space-y-4">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                主要製品ラインナップおよび技術仕様：標準口径、家庭用およびフラットモデル</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                農業温室内の点滴潅水チューブ、牛舎や鶏舎の給水管、さらには美容用シャワーノズル、家庭用メイン給水管までを高度にカバーする標準・小口径ラインナップです。
+              </p>
+
+              <div class="space-y-3 text-xs sm:text-sm">
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-150 shadow-sm space-y-1">
+                  <h4 class="font-bold text-slate-900 text-sm">■ 標準小口径 50A モデル (&lt; 50A &gt;)</h4>
+                  <div class="grid grid-cols-2 gap-y-1 gap-x-4 text-slate-600 text-xs">
+                    <span>・適用接続配管口径: <strong>50A 配管</strong></span>
+                    <span>・内蔵電極構成数: <strong>1枚</strong></span>
+                    <span>・電極間ギャップ: <strong>25 mm</strong></span>
+                    <span>・動作供給電源: <strong>AC 110V / 220V</strong></span>
+                  </div>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-150 shadow-sm space-y-1">
+                  <h4 class="font-bold text-slate-900 text-sm">■ 家庭・精密用 1インチコード型モデル (&lt; 1inch (cord type) &gt;)</h4>
+                  <div class="grid grid-cols-2 gap-y-1 gap-x-4 text-slate-600 text-xs">
+                    <span>・適用接続配管口径: <strong>1インチ (25A) 配管</strong></span>
+                    <span>・内蔵電極構成数: <strong>7枚（超薄型高電磁多極仕様）</strong></span>
+                    <span>・電極間ギャップ: <strong>2.2 mm（超微細設計）</strong></span>
+                    <span>・動作供給電源: <strong>DC 3.3V 超省電力仕様</strong></span>
+                  </div>
+                </div>
+
+                <div class="p-3 bg-emerald-50/20 rounded-lg border border-emerald-100 shadow-sm space-y-1">
+                  <h4 class="font-bold text-emerald-950 text-sm">■ 貯留タンク浸水型電極プレート (&lt; 1(W) x 0.4(H)m &gt;)</h4>
+                  <div class="grid grid-cols-2 gap-y-1 gap-x-4 text-slate-655 text-xs">
+                    <span>・適用槽・タンク口径: <strong>横 1.0 m × 縦 0.4 m</strong></span>
+                    <span>・内蔵電極構成数: <strong>25枚（多電極仕様）</strong></span>
+                    <span>・電極間ギャップ: <strong>17 mm</strong></span>
+                    <span>・動作供給電源: <strong>AC 110V / 220V</strong></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>Skin Hair PLUS CARE / WATER SOFTENER</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 4 -->
+        <section id="page4" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 4</span>
+              <span class="text-xs text-slate-400 font-medium">主要製品仕様・構造 (GOF01)</span>
+            </div>
+
+            <div class="space-y-4 my-auto">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                主要製品仕様一覧および製品主要物理構造 (標準モデル：GOF01)</h3>
+
+              <div class="overflow-hidden rounded-xl border border-slate-200 shadow-sm">
+                <table class="min-w-full divide-y divide-slate-200 text-[13.5px] text-left">
+                  <thead class="bg-slate-50 font-bold text-slate-700">
+                    <tr>
+                      <th class="px-4 py-2">製品仕様規定項目</th>
+                      <th class="px-4 py-2">仕様詳細規定値 (50A GOF01基準)</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-200 bg-white text-slate-700">
+                    <tr>
+                      <td class="px-4 py-2 font-bold">製品名称 (Product Name)</td>
+                      <td class="px-4 py-2">UNGウォーターエンハンサー 水質処理システム</td>
+                    </tr>
+                    <tr class="bg-slate-50/30">
+                      <td class="px-4 py-2 font-bold">モデル名 (Model)</td>
+                      <td class="px-4 py-2">GOF01</td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-2 font-bold">使用温度環境 (Operating temp.)</td>
+                      <td class="px-4 py-2">$35.6 \sim 158^{\circ}\text{F} \quad / \quad 2 \sim 70^{\circ}\text{C}$</td>
+                    </tr>
+                    <tr class="bg-slate-50/30">
+                      <td class="px-4 py-2 font-bold">接続配管径 / 処理能力</td>
+                      <td class="px-4 py-2 font-bold text-emerald-700">50A / 1日あたり 400トン（1時間あたり 18トン）</td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-2 font-bold">入力動作電圧 (Input voltage)</td>
+                      <td class="px-4 py-2">AC $90 \sim 264\text{V}$ （$50 \sim 60\text{Hz}$ 兼用ユニバーサルフリー入力）</td>
+                    </tr>
+                    <tr class="bg-slate-50/30">
+                      <td class="px-4 py-2 font-bold">消費電力 (Power consumption)</td>
+                      <td class="px-4 py-2 text-emerald-700">15 W 未満（極省電力回路設計）</td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-2 font-bold">製造会社 / 製造国</td>
+                      <td class="px-4 py-2">U&G Technology Co., Ltd. / 大韓民国</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="p-3.5 rounded-xl border border-slate-150 bg-slate-50/50 space-y-2 text-xs">
+                <h4 class="font-extrabold text-slate-900 text-sm">■ 装置本体の主要製品構造 (Product Structure)</h4>
+                <p class="text-slate-650 leading-relaxed text-xs">
+                  ・<strong>電子制御部 (Electronic
+                    Controller)：</strong>本体上部に配置され、電源状態表示ランプ（Lamp）を備え、チャンバー電極部に対し高安定電磁パルス・高電圧制御を自動調整します。<br>
+                  ・<strong>水処理電極部
+                    (Electrode)：</strong>本体下部の金属チャンバー内に配置され、通水する溶液に対して短絡を生じることなく安定的に強力な静電界を放射する、特許取得済みの特殊電極構造です。
+                </p>
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>Une Electrostatic Enhancement Water!</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 5 -->
+        <section id="page5" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 5</span>
+              <span class="text-xs text-slate-400 font-medium">製品公認認証ステータス</span>
+            </div>
+
+            <div class="space-y-4 my-auto">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                国内外公認試験機関および公的認証取得ステータス</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                UNGウォーターエンハンサー水処理システムは、大韓民国、米国（FDA）、欧州（CE）の公的に検証された以下の公的ライセンスと品質保証評価を取得しています。
+              </p>
+
+              <div class="overflow-hidden rounded-xl border border-slate-200 shadow-sm">
+                <table class="min-w-full divide-y divide-slate-200 text-[13px] text-left">
+                  <thead class="bg-slate-50 font-bold text-slate-700">
+                    <tr>
+                      <th class="px-3 py-2">公認認証名称</th>
+                      <th class="px-3 py-2">公的認証登録番号</th>
+                      <th class="px-3 py-2">承認・検証機関（ライセンス発行体）</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-200 bg-white text-slate-700 leading-relaxed text-xs">
+                    <tr>
+                      <td class="px-3 py-2 font-bold">ISO 9001:2015</td>
+                      <td class="px-3 py-2 font-mono">QMS-4958</td>
+                      <td class="px-3 py-2">韓国標準協会 (KSA) (品質)</td>
+                    </tr>
+                    <tr class="bg-slate-50/30">
+                      <td class="px-3 py-2 font-bold">ISO 14001:2015</td>
+                      <td class="px-3 py-2 font-mono">EMS-1683</td>
+                      <td class="px-3 py-2">韓国標準協会 (KSA) (環境)</td>
+                    </tr>
+                    <tr>
+                      <td class="px-3 py-2 font-bold">CE (欧州安全認証)</td>
+                      <td class="px-3 py-2 font-mono text-emerald-700">K11846 / E19、K12241 / E19</td>
+                      <td class="px-3 py-2">TUV NORD (ドイツ公認認証機関)</td>
+                    </tr>
+                    <tr class="bg-slate-50/30">
+                      <td class="px-3 py-2 font-bold">CE (欧州安全認証)</td>
+                      <td class="px-3 py-2 font-mono text-emerald-700">K12968 / E21、K13287 / E22</td>
+                      <td class="px-3 py-2">TUV NORD (ドイツ公認認証機関)</td>
+                    </tr>
+                    <tr>
+                      <td class="px-3 py-2 font-bold">KC (韓国適合規格)</td>
+                      <td class="px-3 py-2 font-mono text-emerald-700">R-R-068-NSNF01 / GOF01</td>
+                      <td class="px-3 py-2">韓国国立電波研究院 (RRA)</td>
+                    </tr>
+                    <tr class="bg-slate-50/30">
+                      <td class="px-3 py-2 font-bold">KC (韓国適合規格)</td>
+                      <td class="px-3 py-2 font-mono text-emerald-700">R-R-068-NSF01 / NSNF02</td>
+                      <td class="px-3 py-2">韓国国立電波研究院 (RRA)</td>
+                    </tr>
+                    <tr>
+                      <td class="px-3 py-2 font-bold">米国 FDA 登録</td>
+                      <td class="px-3 py-2 font-mono text-emerald-700">D361563 (食品加工・接触グレード)</td>
+                      <td class="px-3 py-2">米国食品医薬品局 (FDA)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>米国特許・韓国特許・国際品質環境認証取得</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 6 -->
+        <section id="page6" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 6</span>
+              <span class="text-xs text-slate-400 font-medium">静電界水処理の科学的原理</span>
+            </div>
+
+            <div class="space-y-4 my-auto text-xs">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                ウォーターエンハンサーの静電界水処理にかかる科学的原理</h3>
+
+              <div class="rounded-xl border border-slate-200 bg-slate-50/50 p-4 space-y-2 text-xs">
+                <h4 class="font-extrabold text-slate-950 text-xs">■ 静電界（Electrostatic Field）とは何か？</h4>
+                <p class="text-slate-650 leading-relaxed text-xs">
+                  自然界における「落雷・稲妻」の放電現象のように、水配管内部に陽極（anode）と陰極（cathode）の高帯電極を配置。極めて高度に蓄積された静電界エネルギー電位を溶液に連続的に印加することにより、水分子構造に急激な物理的・構造的な変位を強制的に引き起こす水質改善技術です。
+                </p>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3 text-xs text-slate-650 leading-relaxed">
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-150 space-y-1">
+                  <strong class="text-slate-900">1. 水分子の水素結合の弱化</strong>
+                  <p>静電界電位の印加により、水分子間の水素結合を弱めます。これにより巨大な水分子集団（クラスター）が細分化・微細化されます。</p>
+                </div>
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-150 space-y-1">
+                  <strong class="text-slate-900">2. 表面張力の低下</strong>
+                  <p>クラスターの細小化により、溶液自体の表面張力が減少し、「親水性」「濡れ性」が高まります。これにより各種物質への浸透能や洗浄力が向上します。</p>
+                </div>
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-150 space-y-1">
+                  <strong class="text-slate-900">3. ゼータ電位の増大とイオン活性化</strong>
+                  <p>溶液内の懸濁物質やコロイド粒子の電荷的反発力を増強（ゼータ電位をプラス側にシフト）。イオンを高度に活性化させ、安定な相互分散状態を作り出します。</p>
+                </div>
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-150 space-y-1">
+                  <strong class="text-slate-900">4. スケール・スライムの結晶化阻止</strong>
+                  <p>カルシウム（$\text{Ca}^{2+}$）と炭酸根（$\text{CO}_3^{2-}$）を不溶性の微細なコロイド結晶（アラゴナイト等）として水中内に分散保持させ、固着を予防・剥離します。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>Scientific principle of the product</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 7 -->
+        <section id="page7" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 7</span>
+              <span class="text-xs text-slate-400 font-medium">5大技術的特徴と効果</span>
+            </div>
+
+            <div class="space-y-4 my-auto">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                ウォーターエンハンサー水処理システムがもたらす5つの革新的作用</h3>
+
+              <div class="space-y-3 text-xs sm:text-sm">
+                <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 shadow-sm space-y-1">
+                  <h4 class="font-extrabold text-slate-955 text-xs">① ミネラルの能動的な吸収効率の向上（動植物共通）</h4>
+                  <p class="text-slate-600 text-xs leading-relaxed">
+                    水素結合の弱化によってクラスターが極小化され、無機養分がイオン化された処理水は、植物および家畜細胞に配置されたアクアポリン（水チャネル）を速やかに透過。多くのミネラルや水分を細胞内にスムーズに供給し、成長エネルギーを高めます。
+                  </p>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 shadow-sm space-y-1">
+                  <h4 class="font-extrabold text-slate-955 text-xs">② ウイルス・細菌に対する殺菌および防カビ・防藻作用</h4>
+                  <p class="text-slate-600 text-xs leading-relaxed">
+                    高電界ポテンシャルにより、水中の病原菌（黄色ブドウ球菌等）や藻類の細胞膜に電荷整列ストレスを与えて穿孔破壊し、死滅（アポトーシス）を誘発。同時に、水中の微量塩素を殺菌能の高い次亜塩素酸（$\text{HOCl}$）へ電気化学的に変換させます。
+                  </p>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 shadow-sm space-y-1">
+                  <h4 class="font-extrabold text-slate-955 text-xs">③ 界面張力の低下を伴う優れた洗浄能の強化</h4>
+                  <p class="text-slate-600 text-xs leading-relaxed">
+                    水の濡れ性を高め、微細隙間に潜む汚れを包み込んで剥離。同時に、水中内の硬度成分（Ca,
+                    Mg）が洗剤や石鹸を不溶析出化（金属石鹸化）するのを防ぐことで、洗剤・石鹸の泡立ちと汚れ落とし性能を格段に引き上げます。
+                  </p>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 shadow-sm space-y-1">
+                  <h4 class="font-extrabold text-slate-955 text-xs">④ 軟水化（全硬度の低減）と配管スケール・錆・スライム除去</h4>
+                  <p class="text-slate-600 text-xs leading-relaxed">
+                    CaやMg成分を安定したコロイド分散状態に維持し、ボイラーや熱交換配管への固着を完全防止。さらに、電離活性化により発生した微細炭酸が、配管内壁に固着蓄積したスケールをゆっくりと溶解・剥離させ、赤錆を不活性な黒錆（磁鉄鉱）皮膜へと転化します。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>Key technical features of the product</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 8 -->
+        <section id="page8" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 8</span>
+              <span class="text-xs text-slate-400 font-medium">農業分野への応用と実績</span>
+            </div>
+
+            <div class="space-y-4 my-auto text-xs sm:text-sm">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                農業（水耕栽培・施設園芸）における導入効果および実証実績</h3>
+              <p class="text-slate-600 leading-relaxed text-xs">
+                トマト、キュウリ、イチゴなどの果菜類から各種葉菜類、切り花（バラ等）に至るまで、潅水に本システムを導入することにより、収量・品質・生理障害の抑制において格段の優位性が実証されています。
+              </p>
+
+              <div class="grid grid-cols-2 gap-4 text-xs leading-relaxed text-slate-700">
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1 shadow-sm">
+                  <h4 class="font-extrabold text-slate-955 text-xs"><i
+                      class="fa-solid fa-seedling mr-1 text-emerald-600"></i> ■ 作物の発育特性および生産性の飛躍的向上</h4>
+                  <p>・<strong>生長の大幅促進および収量増大：</strong>光合成に必要な展開葉面積が対照区比で約24%も劇的に拡大。受光態勢の最大化を証明。</p>
+                  <p>・<strong>主要生理障害の完璧な予防：</strong>トマト等の大敵であるカルシウム欠乏症「尻腐れ果」の発症罹病率を1/3（3.52%）に抑止。</p>
+                  <p>・<strong>糖度（サッカリン率）の増大：</strong>果実糖度が大きく高まり、プレミアム市場等級適合率が格段に向上。</p>
+                </div>
+
+                <div
+                  class="p-4 bg-emerald-50/10 rounded-xl border border-emerald-100/50 space-y-1 shadow-sm text-slate-600">
+                  <h4 class="font-extrabold text-emerald-955 text-xs"><i
+                      class="fa-solid fa-viruses mr-1 text-emerald-600"></i> ■ 各種病害の予防抑制と水耕ベッドの健全化</h4>
+                  <p>・<strong>ウイルス・病原菌の強固な不活化：</strong>潅水用配管や給液タンクからの病害発生を不活化・殺菌し、無農薬（減化学農薬栽培）のエコ農業を達成。</p>
+                  <p>・<strong>発芽および発根発育能の顕著な活性化：</strong>播種・定植初期における細根系の活着速度が極めて高度に促進される。</p>
+                  <p>・<strong>収穫後果実の鮮度（保存期間）の大幅な延長：</strong>収穫後7日経過時におけるカビの繁殖、軟化劣化を極めて高度に抑制。</p>
+                </div>
+              </div>
+
+              <div
+                class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs text-slate-650 leading-relaxed text-[11px] shadow-sm">
+                ※ <strong>温室水耕におけるコケ・藻の発生抑止作用：</strong>
+                水耕ベッドや配管ドリッパーノズル内のコケ・アオコの繁殖を未然に阻止。化学除草剤や殺藻剤を一切投入することなく、栽培設備を長期間にわたり衛生的に維持することができます。
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>Agriculture Farming Application</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 9 -->
+        <section id="page9" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 9</span>
+              <span class="text-xs text-slate-400 font-medium">畜産業分野への応用と実績</span>
+            </div>
+
+            <div class="space-y-4 my-auto text-xs sm:text-sm">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                畜産業分野における適用と生産品質への多大な貢献</h3>
+              <p class="text-slate-600 leading-relaxed text-xs">
+                牛、豚、鶏をはじめとする大規模畜舎・肉用乳用プラントへの本水処理システムの導入は、家畜の日常健康状態を大幅に改善し、肉・卵などの歩留まり品質を格段に高めます。
+              </p>
+
+              <div class="grid grid-cols-2 gap-4 text-xs">
+                <div class="rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-2 shadow-sm">
+                  <h4 class="font-extrabold text-slate-900 text-xs"><i
+                      class="fa-solid fa-cow mr-1 text-emerald-600"></i> ■ 家畜の疾病抑止および健康管理性能</h4>
+                  <ul class="list-disc pl-4 space-y-1 text-slate-600 text-xs leading-relaxed">
+                    <li><strong>驚異的な飲水意欲の向上：</strong>水クラスターの細小化により家畜の好むまろやかな飲料水へと改質され、牛や豚の飲水量が増加、腎循環を向上。</li>
+                    <li><strong>乳用・肉用牛の尿路結石疾患の予防：</strong>飲料水中のCa・Mg成分が軟水化され、牛最大の死因の一つである尿石発症を徹底予防。</li>
+                    <li><strong>豚・鶏の下痢性消化器疾患の激減：</strong>静電界殺菌効果により大腸菌等の感染を抑え、下痢による脱水を防止。</li>
+                  </ul>
+                </div>
+
+                <div class="rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-2 shadow-sm">
+                  <h4 class="font-extrabold text-slate-900 text-xs"><i
+                      class="fa-solid fa-egg mr-1 text-emerald-600"></i> ■ 出荷肉質および卵品質の高度な向上</h4>
+                  <ul class="list-disc pl-4 space-y-1 text-slate-600 text-xs leading-relaxed">
+                    <li><strong>出荷食肉（歩留まり・等級）の向上：</strong>代謝効率の最大化に伴い、牛肉・豚肉等の肉付き、サシ（脂肪交雑）が非常に美しく形成。</li>
+                    <li><strong>鶏卵品質および卵殻硬度の強化：</strong>カルシウム等の吸肥能が最大化されるため、卵殻強度が向上、配送・回収時の破卵率を極低減。</li>
+                    <li><strong>畜舎悪臭およびハエ害虫の発生抑制：</strong>糞尿内有機物が電解的にスムーズに分解されやすくなり、アンモニアや硫化水素の放散悪臭を大幅抑制。</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div
+                class="bg-emerald-50/20 p-3.5 rounded-xl border border-emerald-100 text-xs text-slate-700 leading-normal">
+                ※ 家畜が水槽や給水トレイ（給水樋）にこびりつくヌメリ、泥、黒コケが水質改善効果により完全に消失・予防され、飲料水配管の洗浄メンテナンスコストを大幅に削減、清潔な畜産衛生環境を確立します。
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>Stock Farming Application</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 10 -->
+        <section id="page10" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 10</span>
+              <span class="text-xs text-slate-400 font-medium">産業用設備への応用と実績</span>
+            </div>
+
+            <div class="space-y-4 my-auto text-xs sm:text-sm">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                大規模産業ビル・熱交換プラント・冷却塔における設備長寿命化効果</h3>
+              <p class="text-slate-600 leading-relaxed text-xs">
+                大規模ビルや製造工場、スチーム温水ボイラー、高熱交換ラインなどの循環水路で直面する最大の課題は、管内に付着する「錆」「硬質結晶スケール」「藻類スライム」による熱効率の低下、および電気・維持コストの超過です。
+              </p>
+
+              <div class="overflow-hidden rounded-xl border border-slate-200 shadow-sm">
+                <table class="min-w-full divide-y divide-slate-200 text-xs text-left">
+                  <thead class="bg-slate-50 font-bold text-slate-700">
+                    <tr>
+                      <th class="px-4 py-2">産業プラント導入箇所</th>
+                      <th class="px-4 py-2">適用することによる物理化学的メリットと経済的波及効果</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-200 bg-white text-slate-700 leading-relaxed">
+                    <tr>
+                      <td class="px-4 py-3 font-bold">冷却塔（クーリングタワー）</td>
+                      <td class="px-4 py-3">
+                        水中のシリカ、Ca、Mgなどの不溶化固着を電離分散により阻止。<strong>アオコや藻類の発生を不活化・溶解</strong>し、ヌメリ（スライム）を無薬で完全除去。
+                      </td>
+                    </tr>
+                    <tr class="bg-slate-50/50">
+                      <td class="px-4 py-3 font-bold">ボイラー・スチーム配管</td>
+                      <td class="px-4 py-3">
+                        既存配管に割り込み設置することで、電離により発生した微細炭酸が固着スケールを溶解。鉄錆を極めて安定な不活性マグネタイト（黒錆被膜）へ転化し、腐食を防止。
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 font-bold">散水システム（スプリンクラー）</td>
+                      <td class="px-4 py-3">
+                        クラスター微細化により噴霧水の動的粘度を均一に制御。ノズル目詰まりを完全予防し、散水軌道の精度を一定に維持、メンテナンス労力を最大低減。
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div
+                class="bg-emerald-50/10 p-3.5 rounded-xl border border-emerald-100/50 text-xs text-slate-750 leading-relaxed shadow-sm">
+                <strong>■ シンガポール・クリーンテックプロジェクト冷却塔での検証事例：</strong><br>
+                2014年シンガポールにて稼働中の大規模冷却塔システム（80Aモデル導入、42t/h処理）を実証運転。UNG処理水循環により、熱交換部および配管内壁にこびりついていた頑固な硬質カルシウムスケール、赤錆、スライムが、約40日間稼働後に<span
+                  class="font-extrabold text-emerald-800">実質90%以上も完璧に剥離・除去されるクリーン化性能</span>を達成。
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>Industrial Equipment Application</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 11 -->
+        <section id="page11" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 11</span>
+              <span class="text-xs text-slate-400 font-medium">住宅・居住分野への応用</span>
+            </div>
+
+            <div class="space-y-4 my-auto text-xs sm:text-sm">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                中庭景観池・大型温水プール・居住住宅における快適水質ソリューション</h3>
+              <p class="text-slate-600 leading-relaxed text-xs">
+                観賞用庭園池の透明度維持や、家庭用温水シャワー、浴室、プールにおける水質改善は、居住環境の美観および居住者の健康度を向上させる極めて重要な要素です。
+              </p>
+
+              <div class="grid grid-cols-2 gap-4 text-xs">
+                <div class="rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-2 shadow-sm">
+                  <h4 class="font-extrabold text-slate-900 text-xs"><i
+                      class="fa-solid fa-cloud-sun-rain mr-1 text-emerald-600"></i> ■ 景観池・プールでのアオコ藻類抑制効果</h4>
+                  <ul class="list-disc pl-4 space-y-1 text-slate-600 text-xs leading-relaxed">
+                    <li><strong>藻類細胞膜の穿孔破壊と緑色アオコ不活性化：</strong>静電界パルスが藻類を効果的に不活化。濁度を低減。</li>
+                    <li><strong>アオコ腐敗に伴う悪臭の除去：</strong>独特のカビ臭や有機腐敗アミン臭を化学的に抑制。プール・池における塩素等ケミカル消費量を半減以下へ。</li>
+                    <li>
+                      <strong>シンガポール等での緑藻実証実績：</strong>緑色に濁って底が見えなかった景観池が、ウォーターエンハンサー水処理の連続稼働<strong>2週間〜60週間</strong>の期間で、水底タイルが完全に見える高度な透明水質を確立。
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-2 shadow-sm">
+                  <h4 class="font-extrabold text-slate-900 text-xs"><i
+                      class="fa-solid fa-shower mr-1 text-emerald-600"></i> ■ スキンケア・洗たく浴室での軟水美容効果</h4>
+                  <ul class="list-disc pl-4 space-y-1 text-slate-600 text-xs leading-relaxed">
+                    <li><strong>アトピー・肌荒れトラブルの改善：</strong>硬度成分（カルシウムイオン）が皮膚を刺激するのを防ぎ、アトピー肌や敏感肌の日常トラブルを大幅軽減。</li>
+                    <li><strong>頭皮・頭皮ダメージの低減効果：</strong>髪のパサつきを抑え、シャンプー時の毛穴ディープクレンジングを達成。</li>
+                    <li><strong>お風呂掃除の手間削減・コケカビ防止：</strong>浴室壁面の頑固な石鹸カスや黒ずみ、カビの発生を極めて高度に防止します。</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>Residential & Sanitary Application</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 12 -->
+        <section id="page12" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 12</span>
+              <span class="text-xs text-slate-400 font-medium">水産養殖分野への応用</span>
+            </div>
+
+            <div class="space-y-4 my-auto text-xs sm:text-sm">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                魚類・エビ・アワビ等の産業用陸上・水産養殖分野での効果</h3>
+              <p class="text-slate-600 leading-relaxed text-xs">
+                水産養殖ラインにおいて、赤潮や病原性ウイルスの不活化、斃死率低下、抗生物質・化学農薬の削減、および溶存酸素効率の向上は、養殖事業の収益性を劇的に改善します。
+              </p>
+
+              <div class="grid grid-cols-2 gap-4 text-xs">
+                <div class="rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-2 shadow-sm">
+                  <h4 class="font-extrabold text-slate-900 text-xs"><i
+                      class="fa-solid fa-shrimp mr-1 text-emerald-600"></i> ■ バナメイエビ等の養殖実証事例（80Aモデル導入）</h4>
+                  <p class="text-slate-600 text-xs leading-relaxed">
+                    <strong>10,890 m² × 水深2m = 総水量
+                      21,780トン</strong>の超大規模エビ養殖池に対して、ウォーターエンハンサー水処理システム（80Aモデル、42t/h処理）を導入稼働。
+                  </p>
+                  <ul class="list-disc pl-4 space-y-1 text-slate-500 text-[11px] leading-relaxed">
+                    <li><strong>高い不活化：</strong>エビ養殖における最大の壊滅要因である「白斑ウイルス（White Spot Syndrome Virus）」を完全かつ強力に滅菌・不活化。</li>
+                    <li><strong>斃死率の劇的な低減：</strong>感染や水質悪化に伴う突然死が減少し、エビの生存・安全生存比率が最大限界値まで向上。</li>
+                    <li><strong>抗生物質のゼロ化（完全なエコ養殖）：</strong>抗生防薬化学物質に頼ることなくエビが肉厚に超スピード発育。</li>
+                  </ul>
+                </div>
+
+                <div class="rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-2 shadow-sm">
+                  <h4 class="font-extrabold text-slate-900 text-xs"><i
+                      class="fa-solid fa-fish mr-1 text-emerald-600"></i> ■ アワビ養殖・貝類プラントでの実証効果</h4>
+                  <ul class="list-disc pl-4 space-y-1 text-slate-600 text-xs leading-relaxed">
+                    <li><strong>海水内の石灰化（カル化）プロセスの制御：</strong>アワビ飼育槽の内壁や貝殻表面で生じる不均等な石灰化（殻の詰まり現象）を防止し、健全な代謝発育を維持。</li>
+                    <li><strong>溶存酸素率の最大向上：</strong>水のクラスター微細化により、高水温ストレス下でも海水中に内包される最大溶存酸素効率が向上し、魚介類の酸欠死を防ぐ。</li>
+                    <li><strong>赤潮の殺菌＆アオコの即時分解：</strong>海面で多発する有害プランクトンや、アオコ泡の発生を水処理エネルギーが瞬時に分解、クリーンな水質濁度をキープ。</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>Aqua Farming Application</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 13 -->
+        <section id="page13" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 13</span>
+              <span class="text-xs text-slate-400 font-medium">公認試験の検証サマリー</span>
+            </div>
+
+            <div class="space-y-4 my-auto">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                公認機関による物理化学的および除菌・抗菌性能の測定結果</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                UNGウォーターエンハンサー水処理システムは、韓国の衣類試験研究院（KATRI）および韓国建材試験研究院（KCL）において厳格な測定分析が行われ、その性能が保証されています。
+              </p>
+
+              <div class="overflow-hidden rounded-xl border border-slate-200 shadow-sm text-xs">
+                <table class="min-w-full divide-y divide-slate-200 text-left">
+                  <thead class="bg-slate-50 font-bold text-slate-700">
+                    <tr>
+                      <th class="px-4 py-2">分析検証試験項目</th>
+                      <th class="px-4 py-2">一般未処理水 (Control)</th>
+                      <th class="px-4 py-2 text-emerald-800 bg-emerald-50/20 font-bold">1次処理水 / 循環水 (Applied)</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-200 bg-white text-slate-700">
+                    <tr>
+                      <td class="px-4 py-2 font-bold">全硬度 ($\text{Total Hardness}$)</td>
+                      <td class="px-4 py-2 font-mono">78.6 mg CaCO₃/L</td>
+                      <td class="px-4 py-2 bg-emerald-50/10 font-bold text-emerald-900">67.2 mg CaCO₃/L (15%の軟水化)</td>
+                    </tr>
+                    <tr class="bg-slate-50/50">
+                      <td class="px-4 py-2 font-bold">洗浄力評価 ($\text{Detergency Power}$)</td>
+                      <td class="px-4 py-2 font-mono">7.5 %</td>
+                      <td class="px-4 py-2 bg-emerald-50/10 font-bold text-emerald-900">8.8 % (17%の洗浄能向上)</td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-2 font-bold">水の表面張力 ($\text{Surface Tension}$)</td>
+                      <td class="px-4 py-2 font-mono">72.0 mN/m</td>
+                      <td class="px-4 py-2 bg-emerald-50/10 font-bold text-emerald-900">71.9 mN/m (浸透性、汚れ遊離性向上)</td>
+                    </tr>
+                    <tr class="bg-slate-50/50">
+                      <td class="px-4 py-2 font-bold">電気伝導度 ($\text{Conductivity}$)</td>
+                      <td class="px-4 py-2 font-mono">249.6 μS/cm</td>
+                      <td class="px-4 py-2 bg-emerald-50/10 font-bold text-emerald-900">250.8 μS/cm (活性イオン電離比率の向上)</td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-2 font-bold">ブドウ球菌不活化（1パス即時）</td>
+                      <td class="px-4 py-2 font-mono">0 (不活化なし)</td>
+                      <td class="px-4 py-2 bg-emerald-50/10 font-bold text-emerald-800">66.6 % 減少 (高電磁穿孔殺菌)</td>
+                    </tr>
+                    <tr class="bg-slate-50/50">
+                      <td class="px-4 py-2 font-bold">ブドウ球菌不活化（1時間循環）</td>
+                      <td class="px-4 py-2 font-mono">0 (不活化なし)</td>
+                      <td class="px-4 py-2 bg-emerald-50/10 font-extrabold text-emerald-800">99.9 % 減少 (完全死滅・滅菌)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>National verified test results in Korea</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 14 -->
+        <section id="page14" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 14</span>
+              <span class="text-xs text-slate-400 font-medium">硬度・洗浄力検証データ</span>
+            </div>
+
+            <div class="space-y-4 my-auto">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                公認機関（KATRI）試験レポート：全硬度の低減および洗浄性能の向上</h3>
+              <p class="text-slate-600 text-xs leading-relaxed">
+                韓国の公認試験研究院（KATRI）による定量分析レポート（SPHD17-00001597-2 /
+                SPHD17-00001593-2）により、硬度の低減による軟水機能、および水の濡れ性向上に伴う洗浄性能の向上が裏付けられています。
+              </p>
+
+              <div class="grid grid-cols-2 gap-4">
+                <div class="rounded-xl border border-slate-200 bg-slate-50/50 p-4 space-y-2 shadow-sm text-center">
+                  <h4 class="font-extrabold text-slate-900 text-xs">■ 全硬度試験データ (Total Hardness)</h4>
+                  <div class="py-2">
+                    <span class="text-slate-500 text-xs">一般水道水:</span> <span
+                      class="font-mono text-slate-800 font-bold text-sm">78.6 mg/L</span><br>
+                    <span class="text-emerald-700 text-xs">UNG電解処理水:</span> <span
+                      class="font-mono text-emerald-800 font-bold text-sm">67.2 mg/L</span>
+                  </div>
+                  <p class="text-emerald-800 font-extrabold text-xs bg-emerald-50 p-2 rounded">
+                    全硬度：約15％の低減（軟水化）を達成
+                  </p>
+                  <p class="text-[10px] text-slate-500 leading-normal text-left">
+                    水中のカルシウム、マグネシウムが不溶性の結晶化（スケール沈着）するのを防ぎ、まろやかで安定した軟水に改質されます。
+                  </p>
+                </div>
+
+                <div class="rounded-xl border border-slate-200 bg-slate-50/50 p-4 space-y-2 shadow-sm text-center">
+                  <h4 class="font-extrabold text-slate-900 text-xs">■ 洗浄性能測定データ (Detergency Power)</h4>
+                  <div class="py-2">
+                    <span class="text-slate-500 text-xs">一般水道水:</span> <span
+                      class="font-mono text-slate-800 font-bold text-sm">7.5 %</span><br>
+                    <span class="text-emerald-700 text-xs">UNG電解処理水:</span> <span
+                      class="font-mono text-emerald-800 font-bold text-sm">8.8 %</span>
+                  </div>
+                  <p class="text-emerald-800 font-extrabold text-xs bg-emerald-50 p-2 rounded">
+                    洗浄能：約17％の向上を実証
+                  </p>
+                  <p class="text-[10px] text-slate-500 leading-normal text-left">
+                    石鹸や洗剤と金属イオン（Ca等）が結合して不溶性の石鹸カスを形成するのを防ぎ、洗剤本来の洗浄力と泡立ちが最大化されます。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>KATRI Test Report: SPHD17-00001597-2 / 1593-2</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 15 -->
+        <section id="page15" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 15</span>
+              <span class="text-xs text-slate-400 font-medium">表面張力・導電率の検証データ</span>
+            </div>
+
+            <div class="space-y-4 my-auto">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                公認機関（KATRI）試験レポート：水の表面張力の低下と電気伝導度の向上</h3>
+              <p class="text-slate-600 text-xs leading-relaxed">
+                衣類試験研究院（KATRI）の公認試験データ（SPHD17-00001596-1 /
+                SBHD19-00000402）の生データです。高電位静電界による界面浸透性の向上、および溶液内イオンの活性化が高度に実証されています。
+              </p>
+
+              <div class="grid grid-cols-2 gap-4">
+                <div class="rounded-xl border border-slate-200 bg-slate-50/50 p-4 space-y-2 shadow-sm text-center">
+                  <h4 class="font-extrabold text-slate-900 text-xs">■ 表面張力測定試験 (Surface Tension)</h4>
+                  <div class="py-2">
+                    <span class="text-slate-500 text-xs">一般水道水:</span> <span
+                      class="font-mono text-slate-800 font-bold text-sm">70.6 mN/m</span><br>
+                    <span class="text-emerald-700 text-xs">UNG電解処理水:</span> <span
+                      class="font-mono text-emerald-800 font-bold text-sm">70.4 mN/m</span>
+                  </div>
+                  <p class="text-emerald-800 font-extrabold text-xs bg-emerald-50 p-2 rounded">
+                    表面張力の有意な減少・親水化
+                  </p>
+                  <p class="text-[10px] text-slate-500 leading-normal text-left">
+                    水の濡れ性を向上させ、汚れのミクロな隙間への速やかな浸透・遊離をサポート。皮膚や髪を優しく守ります。
+                  </p>
+                </div>
+
+                <div class="rounded-xl border border-slate-200 bg-slate-50/50 p-4 space-y-2 shadow-sm text-center">
+                  <h4 class="font-extrabold text-slate-900 text-xs">■ 電気伝導度測定試験 (Conductivity)</h4>
+                  <div class="py-2">
+                    <span class="text-slate-500 text-xs">一般水道水:</span> <span
+                      class="font-mono text-slate-800 font-bold text-sm">249.6 μS/cm</span><br>
+                    <span class="text-emerald-700 text-xs">UNG電解処理水:</span> <span
+                      class="font-mono text-emerald-800 font-bold text-sm">250.8 μS/cm</span>
+                  </div>
+                  <p class="text-emerald-800 font-extrabold text-xs bg-emerald-50 p-2 rounded">
+                    電離活性および導電比率の増大
+                  </p>
+                  <p class="text-[10px] text-slate-500 leading-normal text-left">
+                    静電界効果によって無機塩類の電離・キレート包摂（水和反応）が促進され、溶液内の導電パラメータが高まります。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>KATRI Test Report: SPHD17-00001596-1 / SBHD19-00000402</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 16 -->
+        <section id="page16" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 16</span>
+              <span class="text-xs text-slate-400 font-medium">除菌抗菌試験レポート①</span>
+            </div>
+
+            <div class="space-y-4 my-auto">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                公認機関（KCL）除菌検証：黄色ブドウ球菌の削減実証レポート (1パス vs 1時間)</h3>
+              <p class="text-slate-600 text-xs leading-relaxed">
+                韓国建材試験研究院（KCL）において、代表的な食中毒菌・皮膚疾患原因菌である黄色ブドウ球菌（Staphylococcus
+                aureus）の死滅能力を、1サイクル通水および1時間循環にて評価した実証データ（CT19-076176 / CT19-076179）の生データです。
+              </p>
+
+              <div class="grid grid-cols-2 gap-4">
+                <div class="rounded-xl border border-slate-200 bg-slate-50/50 p-4 space-y-2 shadow-sm text-center">
+                  <h4 class="font-extrabold text-slate-900 text-xs">■ 1次通過（1 Cycle）即時処理試験</h4>
+                  <p class="text-[10px] text-slate-500 leading-normal text-left">
+                    ・水道水初期菌数: $8.4 \times 10^4 \text{ CFU/mL}$<br>
+                    ・装置通過直後菌数: $2.8 \times 10^4 \text{ CFU/mL}$
+                  </p>
+                  <p class="text-emerald-800 font-extrabold text-xs bg-emerald-50 p-2 rounded">
+                    即時に 66.6% の細菌を死滅抑制
+                  </p>
+                </div>
+                <div class="rounded-xl border border-slate-200 bg-slate-50/50 p-4 space-y-2 shadow-sm text-center">
+                  <h4 class="font-extrabold text-slate-900 text-xs">■ 1時間連続循環処理試験</h4>
+                  <p class="text-[10px] text-slate-500 leading-normal text-left">
+                    ・水道水初期菌数: $7.7 \times 10^4 \text{ CFU/mL}$<br>
+                    ・循環1時間後菌数: 検出限界以下（ゼロ）
+                  </p>
+                  <p class="text-emerald-800 font-extrabold text-xs bg-emerald-50 p-2 rounded">
+                    99.9% の菌を完全滅菌（死滅）
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="bg-emerald-50/20 p-3 rounded-xl border border-emerald-100 text-xs text-slate-700 leading-relaxed">
+                高電圧静電界電位が細菌のリン脂質二重層（細胞膜）に過度な電荷整列ストレスを与えて分極破壊。化学系塩素添加剤に頼ることなく、循環経路内の微生物や一般生菌をほぼ完璧に無害化します。
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>KCL Test Report: CT19-076176 / CT19-076179</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 17 -->
+        <section id="page17" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 17</span>
+              <span class="text-xs text-slate-400 font-medium">除菌抗菌試験レポート②</span>
+            </div>
+
+            <div class="space-y-4 my-auto">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                美容シャワー・浴室向け軟水器モデルにおける抗菌・除菌実証データ (KCL)</h3>
+              <p class="text-slate-600 text-xs leading-relaxed">
+                家庭用・浴室内シャワーノズル、または小型個別軟水モデルを対象として、黄色ブドウ球菌の減少能を評価した試験報告書（CT20-028785K / CT20-028784K）の定量公認レポート数値です。
+              </p>
+
+              <div class="grid grid-cols-2 gap-4">
+                <div class="rounded-xl border border-slate-200 bg-slate-50/50 p-4 space-y-2 shadow-sm text-center">
+                  <h4 class="font-extrabold text-slate-900 text-xs">■ 軟水器：1次通過即時測定</h4>
+                  <p class="text-[10px] text-slate-500 leading-normal text-left">
+                    ・水道水初期菌数: $7.4 \times 10^4 \text{ CFU/mL}$<br>
+                    ・シャワー通過直後菌数: $2.9 \times 10^4 \text{ CFU/mL}$
+                  </p>
+                  <p class="text-emerald-800 font-extrabold text-xs bg-emerald-50 p-2 rounded">
+                    黄色ブドウ球菌 60.8% 即時減少
+                  </p>
+                </div>
+                <div class="rounded-xl border border-slate-200 bg-slate-50/50 p-4 space-y-2 shadow-sm text-center">
+                  <h4 class="font-extrabold text-slate-900 text-xs">■ 軟水器：30分連続循環試験</h4>
+                  <p class="text-[10px] text-slate-500 leading-normal text-left">
+                    ・水道水初期菌数: $7.4 \times 10^4 \text{ CFU/mL}$<br>
+                    ・30分循環後菌数: $3.9 \times 10^3 \text{ CFU/mL}$
+                  </p>
+                  <p class="text-emerald-800 font-extrabold text-xs bg-emerald-50 p-2 rounded">
+                    黄色ブドウ球菌 84.7% 減少
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="bg-emerald-50/20 p-3 rounded-xl border border-emerald-100 text-xs text-slate-700 leading-relaxed">
+                アトピーや肌荒れの原因菌をシャワー洗浄で抑制。カビや水虫菌、一般雑菌が繁殖しやすい浴室環境やヘッド内部、給湯循環配管全体のヌメリをシャットアウトします。
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>KCL Test Report: CT20-028785K / CT20-028784K</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 18 -->
+        <section id="page18" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 18</span>
+              <span class="text-xs text-slate-400 font-medium">シンガポール冷却水実証成績</span>
+            </div>
+
+            <div class="space-y-4 my-auto">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                公認機関（CHEMLAB）分析：シンガポール冷却塔における水質実証</h3>
+              <p class="text-slate-600 text-xs leading-relaxed">
+                シンガポール「Clean Tech 2」の冷却塔循環水路に対し、装置処理された水（Treated
+                water）と一般未処理給水（Control）を採取し、化学成分・微生物生菌数を定量比較した分析証明書（CLS/363849/2014 / CLS/360455/2014）です。
+              </p>
+
+              <div class="overflow-hidden rounded-xl border border-slate-200 shadow-sm text-xs">
+                <table class="min-w-full divide-y divide-slate-200 text-right">
+                  <thead class="bg-slate-50 text-slate-700 font-bold">
+                    <tr class="divide-x divide-slate-200">
+                      <th class="px-3 py-1.5 text-left">水質測定試験項目</th>
+                      <th class="px-3 py-1.5 text-left">試験分析手法</th>
+                      <th class="px-3 py-1.5">一般給水 (Control)</th>
+                      <th class="px-3 py-1.5 bg-emerald-50 font-bold text-emerald-800">処理循環水 (Treated)</th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    class="divide-y divide-slate-200 bg-white text-slate-700 divide-x divide-slate-100 font-medium">
+                    <tr>
+                      <td class="px-3 py-2 text-left font-bold">水素イオン濃度 (pH Value)</td>
+                      <td class="px-3 py-2 text-left font-mono">APHA 4500-H+</td>
+                      <td class="px-3 py-2 font-mono">8.6</td>
+                      <td class="px-3 py-2 font-mono text-emerald-700">7.5 (適正中性域への移行)</td>
+                    </tr>
+                    <tr class="bg-slate-50/50">
+                      <td class="px-3 py-2 text-left font-bold">電気伝導度 ($\text{Conductivity, }\mu\text{S/cm}$)</td>
+                      <td class="px-3 py-2 text-left font-mono">APHA 2510B</td>
+                      <td class="px-3 py-2 font-mono">230</td>
+                      <td class="px-3 py-2 font-mono text-emerald-700">638 (活性電離の増大)</td>
+                    </tr>
+                    <tr>
+                      <td class="px-3 py-2 text-left font-bold">総溶解固形物 (TDS, mg/L)</td>
+                      <td class="px-3 py-2 text-left font-mono">APHA 2540C</td>
+                      <td class="px-3 py-2 font-mono">118</td>
+                      <td class="px-3 py-2 font-mono text-emerald-700">432 (スケール難固着コロイド比率)</td>
+                    </tr>
+                    <tr class="bg-slate-50/50">
+                      <td class="px-3 py-2 text-left font-bold">全鉄分含有量 (Iron as Fe, mg/L)</td>
+                      <td class="px-3 py-2 text-left font-mono">APHA 3111 B</td>
+                      <td class="px-3 py-2 font-mono">&lt; 0.01</td>
+                      <td class="px-3 py-2 font-mono text-emerald-700">0.03 (鉄錆のマグネタイト酸化膜還元)</td>
+                    </tr>
+                    <tr>
+                      <td class="px-3 py-2 text-left font-bold">一般生菌数 ($\text{Standard Plate Count, CFU/mL}$)</td>
+                      <td class="px-3 py-2 text-left font-mono">APHA 9215A,D</td>
+                      <td class="px-3 py-2 font-mono">11,000</td>
+                      <td class="px-3 py-2 font-mono text-emerald-800 font-bold">23 (レジオネラ菌・スライムの激減)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="text-[10px] text-slate-500 leading-normal">
+                ※ 分析日：2014年7月14日、CHEMLAB Singapore公式証明。化学薬品無添加ながら、静電殺菌作用により配管系全体の生菌数を11,000からわずか「23」に激減させたことを証明しています。
+              </p>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>CHEMLAB Analysis Report: CLS/363849/2014 / CLS/360455/2014</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 19 -->
+        <section id="page19" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 19</span>
+              <span class="text-xs text-slate-400 font-medium">農業実証：チコリー収量</span>
+            </div>
+
+            <div class="space-y-4 my-auto">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                江原道農業技術院実証：チコリー栽培の増収・収量成績</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                江原道農業技術院が提供するチコリー（エンディブ）の20日間水耕栽培実証実験における、一般培養液（対照区）およびウォーターエンハンサー適用培養液（ETNS区）のベッド当たり生体重収量の定量的対比結果です。
+              </p>
+
+              <div class="bg-slate-50 p-4 rounded-xl border border-slate-150 shadow-sm space-y-3">
+                <h4 class="font-bold text-slate-900 text-xs">■ 栽培用ベッド当たりの総生産収量比較</h4>
+
+                <div class="space-y-2">
+                  <div class="flex justify-between items-center text-xs">
+                    <span class="font-semibold text-slate-500">一般水道水・一般培養液区 (None)</span>
+                    <span class="font-bold text-slate-800">47.9 kg/bed</span>
+                  </div>
+                  <div class="w-full bg-slate-200 h-4 rounded-full overflow-hidden">
+                    <div class="bg-slate-400 h-full rounded-full" style="width: 85%"></div>
+                  </div>
+                </div>
+
+                <div class="space-y-2">
+                  <div class="flex justify-between items-center text-xs">
+                    <span class="font-bold text-emerald-700">ウォーターエンハンサー適用培養液区 (Applied)</span>
+                    <span class="font-extrabold text-emerald-800">56.3 kg/bed</span>
+                  </div>
+                  <div class="w-full bg-slate-200 h-4 rounded-full overflow-hidden">
+                    <div class="bg-emerald-600 h-full rounded-full" style="width: 100%"></div>
+                  </div>
+                </div>
+
+                <div class="border-t border-slate-200 pt-2.5 text-center">
+                  <span
+                    class="inline-block bg-emerald-100 text-emerald-800 font-extrabold text-xs px-3 py-1 rounded-full">
+                    処理培養液の適用により ＋17.5% の著しい収量増大を実証！
+                  </span>
+                </div>
+              </div>
+
+              <p class="text-xs text-slate-655 leading-relaxed">
+                チコリー水耕栽培における収量差の主要素は、静電界パルスによって小分子化された培養水が、根系の先端細胞へ栄養ミネラルを伴って高速移行・吸収を達成したことにあります。無機微量元素の同化蓄積速度が加速されたことがこの定量的増収データによって立証されました。
+              </p>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>Gangwondo Agricultural Research and Extension Services</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 20 -->
+        <section id="page20" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 20</span>
+              <span class="text-xs text-slate-400 font-medium">チコリー吸肥：陽イオン</span>
+            </div>
+
+            <div class="space-y-4 my-auto text-xs">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                チコリー（葉菜類）栽培における陽イオン（Na, Mg, Ca, K）の吸収経時推移</h3>
+              <p class="text-slate-600 leading-relaxed text-xs">
+                培養液中に残存する主要陽イオン濃度（ppm）の24日間経過推移と、作物の実吸肥能力。対照区（None）と処理区（Applied）での溶液内減少度合い。
+              </p>
+
+              <div class="grid grid-cols-2 gap-3 text-xs leading-relaxed text-slate-650">
+                <div class="p-3 bg-slate-50 rounded border border-slate-150 space-y-1">
+                  <h4 class="font-bold text-slate-900 text-xs">■ ナトリウム (Na) / マグネシウム (Mg) 残留動態</h4>
+                  <ul class="list-disc pl-4 space-y-0.5">
+                    <li><strong>Na: 最大40%のイオン電離活性の低減。</strong>
+                      地下水から侵入し植物に障害を与える塩分Naの活性を抑え、浸透圧上昇を抑制。
+                    </li>
+                    <li><strong>Mg:</strong>
+                      定植11日目の旺盛な光合成・葉緑素合成能の高まりを、処理区での吸肥消費促進が証明。
+                    </li>
+                  </ul>
+                </div>
+                <div class="p-3 bg-slate-50 rounded border border-slate-150 space-y-1">
+                  <h4 class="font-bold text-slate-900 text-xs">■ カルシウム (Ca) / カリウム (K) 残留動態</h4>
+                  <ul class="list-disc pl-4 space-y-0.5">
+                    <li><strong>Ca:</strong>
+                      11日目以降に細胞壁が急激に発達。処理区で吸収が促され、排液（残留）中の濃度が急低下。
+                    </li>
+                    <li><strong>K:</strong>
+                      成長の最盛ピーク時に、処理区で極めて活発にKを吸肥。培養水内の残存分が劇的に低減。
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div
+                class="bg-emerald-50/20 p-3.5 rounded border border-emerald-100/50 text-slate-700 leading-relaxed text-xs">
+                ・<strong>陽イオン吸収促進のメカニズム要約：</strong><br>
+                水素結合が弱化し活性化されたETNS水は、陽電荷を持つ各種ミネラルをキレート化・イオン化して根から能動吸収しやすくします。これにより、植物の健康的な細胞形成と茎葉強化が著しく促進されます。
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>Cation changes in used nutrient solutions</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 21 -->
+        <section id="page21" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 21</span>
+              <span class="text-xs text-slate-400 font-medium">チコリー吸肥：陰イオン</span>
+            </div>
+
+            <div class="space-y-4 my-auto text-xs">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                チコリー栽培における主要陰イオン（Cl, NO₃, PO₄, SO₄）の吸収経時推移</h3>
+              <p class="text-slate-655 leading-relaxed text-xs">
+                植物のタンパク質・DNA形成に直結する、培養液内に溶解する各陰イオン濃度（ppm）の24日間経過推移と、処理水による吸収高効率化の検証。
+              </p>
+
+              <div class="grid grid-cols-2 gap-3 text-xs leading-relaxed text-slate-650">
+                <div class="p-3 bg-slate-50 rounded border border-slate-150 space-y-1">
+                  <h4 class="font-bold text-slate-900 text-xs">■ 塩素 (Cl) / 硝酸根 ($\text{NO}_3$) 残留動態</h4>
+                  <ul class="list-disc pl-4 space-y-0.5">
+                    <li><strong>Cl:</strong>
+                      成長期の緩やかな消費を経て、20日以降に処理区での吸収率が高まり、無駄な残存を抑えて排出。
+                    </li>
+                    <li><strong>NO₃: 最大80%の残留（硝酸根）低減を達成。</strong>
+                      窒素は定植11日以降、処理区で爆発的に同化吸収され、溶液中の残存比率が降下。
+                    </li>
+                  </ul>
+                </div>
+                <div class="p-3 bg-slate-50 rounded border border-slate-150 space-y-1">
+                  <h4 class="font-bold text-slate-900 text-xs">■ リン酸根 ($\text{PO}_4$) / 硫酸根 ($\text{SO}_4$) 残留動態</h4>
+                  <ul class="list-disc pl-4 space-y-0.5">
+                    <li><strong>PO₄:</strong>
+                      活着・生長期全期を通じて処理水区が圧倒的に吸肥。18日目以降は排液中リンがほぼ皆無に。
+                    </li>
+                    <li><strong>SO₄:</strong>
+                      植物代謝が高まる11日目以降に消費量が増大。処理区で吸収向上が安定的かつ継続的に推移。
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div
+                class="bg-emerald-50/20 p-3.5 rounded border border-emerald-100/50 text-slate-700 leading-relaxed text-xs">
+                ・<strong>陰イオン吸収促進のメカニズム要約：</strong><br>
+                特に硝酸根（窒素源）とリン酸イオンは、植物細胞のDNA・RNA、およびタンパク質生成、ATPエネルギーに直結します。ウォーターエンハンサーは、これら陰イオンの分散安定度を高めることで、根圏周囲からの吸収効率を高め、生体重の増大を呼び起こします。
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>Anion changes in used nutrient solutions</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 22 -->
+        <section id="page22" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 22</span>
+              <span class="text-xs text-slate-400 font-medium">実証：トマト生長</span>
+            </div>
+
+            <div class="space-y-3.5 my-auto">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                JALES学術論文Table 1：トマトの生育量特性に与える定量的影響（生育実証写真A・B）</h3>
+
+              <div class="overflow-hidden rounded-xl border border-slate-200 shadow-sm">
+                <!-- Academic paper table 1 -->
+                <table class="min-w-full divide-y divide-slate-200 text-[10.5px] text-right">
+                  <thead class="bg-slate-50 text-slate-655 font-bold">
+                    <tr class="divide-x divide-slate-100">
+                      <th class="px-1 py-1 text-left">定植後<br>日数</th>
+                      <th class="px-1 py-1 text-left">試験区</th>
+                      <th class="px-1 py-1">草丈<br>(cm)</th>
+                      <th class="px-1">主茎径<br>(mm)</th>
+                      <th class="px-1">SPAD</th>
+                      <th class="px-1">葉長<br>(cm)</th>
+                      <th class="px-1">葉幅<br>(cm)</th>
+                      <th class="px-1">葉面積<br>(m²)</th>
+                      <th class="px-1">葉生体重<br>(g)</th>
+                      <th class="px-1">葉乾重<br>(g)</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-200 bg-white text-slate-750 divide-x divide-slate-100">
+                    <tr>
+                      <td class="px-1 py-1 text-left font-bold" rowspan="2">28 DAT</td>
+                      <td class="px-1 py-1 text-left font-bold">対照区</td>
+                      <td>122.3</td>
+                      <td>13.3</td>
+                      <td>57.6</td>
+                      <td>37.4 <span class="text-rose-600 font-bold">b</span></td>
+                      <td>38.2</td>
+                      <td>0.54 <span class="text-rose-600 font-bold">b</span></td>
+                      <td>271.5</td>
+                      <td>30.7</td>
+                    </tr>
+                    <tr class="bg-emerald-50/10 font-bold text-emerald-800">
+                      <td class="px-1 py-1 text-left">ETNS区</td>
+                      <td>116.2</td>
+                      <td>13.1</td>
+                      <td>57.6</td>
+                      <td class="text-emerald-800 font-extrabold">43.6 <span class="text-emerald-700 font-bold">a</span>
+                      </td>
+                      <td>39.0</td>
+                      <td class="text-emerald-800 font-extrabold">0.71 <span class="text-emerald-700 font-bold">a</span>
+                      </td>
+                      <td>313.7</td>
+                      <td>37.2</td>
+                    </tr>
+                    <tr class="border-t border-slate-200">
+                      <td class="px-1 py-1 text-left font-bold" rowspan="2">56 DAT</td>
+                      <td class="px-1 py-1 text-left font-bold">対照区</td>
+                      <td>216.7</td>
+                      <td>11.7</td>
+                      <td>59.1</td>
+                      <td>38.6 <span class="text-rose-600 font-bold">b</span></td>
+                      <td>37.8</td>
+                      <td>0.78 <span class="text-rose-600 font-bold">b</span></td>
+                      <td>604.6</td>
+                      <td>80.8</td>
+                    </tr>
+                    <tr class="bg-emerald-50/10 font-bold text-emerald-800">
+                      <td class="px-1 py-1 text-left">ETNS区</td>
+                      <td>213.8</td>
+                      <td>11.4</td>
+                      <td>59.3</td>
+                      <td class="text-emerald-800 font-extrabold">43.8 <span class="text-emerald-700 font-bold">a</span>
+                      </td>
+                      <td>38.0</td>
+                      <td class="text-emerald-800 font-extrabold">1.32 <span class="text-emerald-700 font-bold">a</span>
+                      </td>
+                      <td>651.1</td>
+                      <td>83.3</td>
+                    </tr>
+                    <tr class="border-t border-slate-200">
+                      <td class="px-1 py-1 text-left font-bold" rowspan="2">84 DAT</td>
+                      <td class="px-1 py-1 text-left font-bold">対照区</td>
+                      <td>298.0</td>
+                      <td>12.9</td>
+                      <td>57.1</td>
+                      <td>39.8 <span class="text-rose-600 font-bold">b</span></td>
+                      <td>39.0</td>
+                      <td>1.56 <span class="text-rose-600 font-bold">b</span></td>
+                      <td>782.2</td>
+                      <td>97.3</td>
+                    </tr>
+                    <tr class="bg-emerald-50/10 font-bold text-emerald-800">
+                      <td class="px-1 py-1 text-left">ETNS区</td>
+                      <td>302.3</td>
+                      <td>14.1</td>
+                      <td>57.0</td>
+                      <td class="text-emerald-800 font-extrabold">43.6 <span class="text-emerald-700 font-bold">a</span>
+                      </td>
+                      <td>42.8</td>
+                      <td class="text-emerald-800 font-extrabold">1.94 <span class="text-emerald-700 font-bold">a</span>
+                      </td>
+                      <td>940.4</td>
+                      <td>111.1</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div
+                class="bg-emerald-50/40 p-3 rounded-xl border border-emerald-100 text-xs text-slate-700 leading-normal">
+                ・<strong>定植後生長・生育データ解説（DAT: 定植後経過日数、ETNS: 静電界処理培養液）：</strong><br>
+                統計的に優位な差は、<strong>本葉長（9.54%伸長）</strong>と、光合成能に比例する重要パラメータである<strong>総展開葉面積（約24.3%の増大）</strong>に極めて顕著に認められました。この生長能力の強固な促進が、果実収穫効率と品質に直接結びつきます。
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>Journal of Agricultural, Life and Environmental Sciences (2022)</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 23 -->
+        <section id="page23" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 23</span>
+              <span class="text-xs text-slate-400 font-medium">トマト品質・給排液分析</span>
+            </div>
+
+            <div class="space-y-4 my-auto">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">学術誌掲載Table 2
+                / Table 3：トマト果実特性および給・排液養分組成</h3>
+
+              <div class="space-y-2.5">
+                <h4 class="text-[10px] font-bold text-slate-400 uppercase">【表2】果実の物理・糖度品質評価および生理障害（尻腐れ果）発生成績</h4>
+                <div class="overflow-hidden rounded border border-slate-200 shadow-sm text-right">
+                  <table class="min-w-full divide-y divide-slate-200 text-[9.5px]">
+                    <thead class="bg-slate-50 text-slate-600 font-bold">
+                      <tr class="divide-x divide-slate-100">
+                        <th class="px-2 py-1 text-left">処理区</th>
+                        <th class="px-1.5 py-1">果実生重 (g)</th>
+                        <th class="px-1.5 py-1">果実乾重 (g)</th>
+                        <th class="px-1.5 py-1">糖度 (Brix)</th>
+                        <th class="px-1.5 py-1">色度 a</th>
+                        <th class="px-1.5 py-1">株当果数</th>
+                        <th class="px-1.5 py-1">罹病数 (ea)</th>
+                        <th class="px-1.5 py-1">障害発生率</th>
+                      </tr>
+                    </thead>
+                    <tbody
+                      class="divide-y divide-slate-200 bg-white text-slate-700 divide-x divide-slate-100 font-medium">
+                      <tr>
+                        <td class="px-2 py-1 text-left font-bold">対照区</td>
+                        <td class="font-mono">137.0</td>
+                        <td class="font-mono">8.2</td>
+                        <td class="font-mono">5.2</td>
+                        <td class="font-mono">29.3</td>
+                        <td class="font-mono">10.8</td>
+                        <td class="font-mono text-rose-600 font-bold">1.2</td>
+                        <td class="font-bold text-rose-600">11.5 %</td>
+                      </tr>
+                      <tr class="bg-emerald-50/10 font-bold text-emerald-800">
+                        <td class="px-2 py-1 text-left font-bold">ETNS区</td>
+                        <td class="font-mono">143.7</td>
+                        <td class="font-mono">8.5</td>
+                        <td class="font-mono">5.3</td>
+                        <td class="font-mono">29.7</td>
+                        <td class="font-mono">10.8</td>
+                        <td class="font-mono text-emerald-700">0.3</td>
+                        <td class="font-extrabold text-emerald-700">3.5 %</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="space-y-2">
+                <h4 class="text-[10px] font-bold text-slate-400 uppercase">【表3】トマト栽培期間中の自動供給液（給液）およびベッド排液の化学組成比率</h4>
+                <div class="overflow-hidden rounded border border-slate-200 shadow-sm text-right">
+                  <table class="min-w-full divide-y divide-slate-200 text-[9px]">
+                    <thead class="bg-slate-50 text-slate-600 font-bold">
+                      <tr class="divide-x divide-slate-100">
+                        <th class="px-1 py-1 text-left">区分</th>
+                        <th class="px-1 py-1 text-left">処理</th>
+                        <th class="px-1 py-1">EC</th>
+                        <th class="px-1 py-1">pH</th>
+                        <th class="px-1 py-1">Na⁺</th>
+                        <th class="px-1 py-1">K⁺</th>
+                        <th class="px-1 py-1">Ca²⁺</th>
+                        <th class="px-1 py-1">Mg²⁺</th>
+                        <th class="px-1 py-1">NO₃⁻</th>
+                        <th class="px-1 py-1">PO₄³⁻</th>
+                      </tr>
+                    </thead>
+                    <tbody
+                      class="divide-y divide-slate-200 bg-white text-slate-700 divide-x divide-slate-100 font-medium">
+                      <tr>
+                        <td class="px-1 py-1 text-left" rowspan="2">給液</td>
+                        <td class="px-1 py-1 text-left">対照</td>
+                        <td class="font-mono">2.3</td>
+                        <td class="font-mono">6.1</td>
+                        <td class="font-mono">8.1</td>
+                        <td class="font-mono">280.8</td>
+                        <td class="font-mono">236.9</td>
+                        <td class="font-mono">45.9</td>
+                        <td class="font-mono">1180.3</td>
+                        <td class="font-mono">115.6</td>
+                      </tr>
+                      <tr class="bg-emerald-50/10 font-bold text-emerald-800">
+                        <td class="px-1 py-1 text-left">ETNS</td>
+                        <td class="font-mono">2.5</td>
+                        <td class="font-mono">6.1</td>
+                        <td class="font-mono">7.9</td>
+                        <td class="font-mono">292.0</td>
+                        <td class="font-mono">239.7</td>
+                        <td class="font-mono">50.9</td>
+                        <td class="font-mono">1192.9</td>
+                        <td class="font-mono">112.6</td>
+                      </tr>
+                      <tr class="border-t border-slate-200">
+                        <td class="px-1 py-1 text-left" rowspan="2">排液</td>
+                        <td class="px-1 py-1 text-left">対照</td>
+                        <td class="font-mono">8.6</td>
+                        <td class="font-mono">5.9</td>
+                        <td class="font-mono">113.1</td>
+                        <td class="font-mono">1084.1</td>
+                        <td class="font-mono text-rose-600">1084.1</td>
+                        <td class="font-mono">230.9</td>
+                        <td class="font-mono">1044.6</td>
+                        <td class="font-mono">379.1</td>
+                      </tr>
+                      <tr class="bg-emerald-50/10 font-bold text-emerald-800">
+                        <td class="px-1 py-1 text-left">ETNS</td>
+                        <td class="font-mono">8.7</td>
+                        <td class="font-mono">5.9</td>
+                        <td class="font-mono">135.8</td>
+                        <td class="font-mono">1248.8</td>
+                        <td class="font-mono text-emerald-700">801.8</td>
+                        <td class="font-mono">227.5</td>
+                        <td class="font-mono">1048.1</td>
+                        <td class="font-mono">685.7</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>Journal of Agricultural, Life and Environmental Sciences (2022)</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 24 -->
+        <section id="page24" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 24</span>
+              <span class="text-xs text-slate-400 font-medium">トマト葉・果実無機含有</span>
+            </div>
+
+            <div class="space-y-4 my-auto">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">学術誌掲載Table 4
+                / Table 5：トマト葉・茎および収穫果実の無機多量元素含有率</h3>
+
+              <div class="space-y-2.5">
+                <h4 class="text-[10px] font-bold text-slate-400 uppercase">【表4】トマト葉部および茎組織内の各種無機元素含有量比較（定植後35, 51日後ベース）
+                </h4>
+                <div class="overflow-hidden rounded border border-slate-200 shadow-sm text-right">
+                  <table class="min-w-full divide-y divide-slate-200 text-[8px]">
+                    <thead class="bg-slate-50 text-slate-600 font-bold">
+                      <tr class="divide-x divide-slate-100">
+                        <th class="px-1.5 py-1 text-left">採取器官</th>
+                        <th class="px-1.5 py-1 text-left">処理</th>
+                        <th class="px-1.5 py-1">T-N(%)</th>
+                        <th class="px-1.5 py-1">CaO(%)</th>
+                        <th class="px-1.5 py-1">K₂O(%)</th>
+                        <th class="px-1.5 py-1">MgO(%)</th>
+                        <th class="px-1.5 py-1">P₂O₅(%)</th>
+                        <th class="px-1.5 py-1">Cu(mg/L)</th>
+                        <th class="px-1.5 py-1">Zn(mg/L)</th>
+                        <th class="px-1.5 py-1">Hg(mg/L)</th>
+                      </tr>
+                    </thead>
+                    <tbody
+                      class="divide-y divide-slate-200 bg-white text-slate-700 divide-x divide-slate-100 font-medium">
+                      <tr>
+                        <td class="px-1.5 py-1 text-left" rowspan="2">葉部 (35日)</td>
+                        <td class="px-1.5 py-1 text-left">対照</td>
+                        <td>5.01</td>
+                        <td>4.67</td>
+                        <td>3.78</td>
+                        <td>0.96</td>
+                        <td>1.15</td>
+                        <td>10.23</td>
+                        <td>39.69</td>
+                        <td>0.02</td>
+                      </tr>
+                      <tr class="bg-emerald-50/10 font-bold text-emerald-800">
+                        <td class="px-1.5 py-1 text-left">ETNS</td>
+                        <td>5.05</td>
+                        <td class="text-emerald-800 font-extrabold">4.78</td>
+                        <td>3.25</td>
+                        <td>0.95</td>
+                        <td>1.19</td>
+                        <td class="text-emerald-800 font-extrabold">18.11</td>
+                        <td>43.60</td>
+                        <td>0.02</td>
+                      </tr>
+                      <tr class="border-t border-slate-200">
+                        <td class="px-1.5 py-1 text-left font-medium" rowspan="2">葉部 (51日)</td>
+                        <td class="px-1.5 py-1 text-left">対照</td>
+                        <td>3.87</td>
+                        <td>6.11</td>
+                        <td>3.09</td>
+                        <td>0.91</td>
+                        <td>1.27</td>
+                        <td>11.13</td>
+                        <td>30.07</td>
+                        <td>0.034</td>
+                      </tr>
+                      <tr class="bg-emerald-50/10 font-bold text-emerald-800">
+                        <td class="px-1.5 py-1 text-left">ETNS</td>
+                        <td>4.01</td>
+                        <td class="text-emerald-800 font-extrabold">6.18</td>
+                        <td>3.49</td>
+                        <td>0.96</td>
+                        <td>1.33</td>
+                        <td class="text-emerald-800 font-extrabold">20.79</td>
+                        <td>35.60</td>
+                        <td>0.037</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="space-y-2">
+                <h4 class="text-[10px] font-bold text-slate-400 uppercase">【表5】収穫果実組織（第1〜3花房段階別）内における精密無機多量元素含有率</h4>
+                <div class="overflow-hidden rounded border border-slate-200 shadow-sm text-right">
+                  <table class="min-w-full divide-y divide-slate-200 text-[8.5px]">
+                    <thead class="bg-slate-50 text-slate-600 font-bold">
+                      <tr class="divide-x divide-slate-100">
+                        <th class="px-2 py-1 text-left">花房段</th>
+                        <th class="px-2 py-1 text-left">処理</th>
+                        <th class="px-2 py-1">T-N (%)</th>
+                        <th class="px-2 py-1">CaO (%)</th>
+                        <th class="px-2 py-1">K₂O (%)</th>
+                        <th class="px-2 py-1">MgO (%)</th>
+                        <th class="px-2 py-1">P₂O₅ (%)</th>
+                        <th class="px-2 py-1">Cu(mg/L)</th>
+                        <th class="px-2 py-1">Zn(mg/L)</th>
+                        <th class="px-2 py-1">Hg(mg/L)</th>
+                      </tr>
+                    </thead>
+                    <tbody
+                      class="divide-y divide-slate-200 bg-white text-slate-700 divide-x divide-slate-100 font-medium">
+                      <tr>
+                        <td class="px-2 py-1 text-left" rowspan="2">第1花房 (1FC)</td>
+                        <td class="px-2 py-1 text-left">対照</td>
+                        <td>2.32</td>
+                        <td>0.28</td>
+                        <td>5.15</td>
+                        <td>0.21</td>
+                        <td>1.17</td>
+                        <td>6.60</td>
+                        <td>34.39</td>
+                        <td>0.006</td>
+                      </tr>
+                      <tr class="bg-emerald-50/10 font-bold text-emerald-800">
+                        <td class="px-2 py-1 text-left">ETNS</td>
+                        <td>2.09</td>
+                        <td class="text-emerald-800 font-extrabold">0.30</td>
+                        <td>4.99</td>
+                        <td>0.20</td>
+                        <td>1.19</td>
+                        <td>6.93</td>
+                        <td>34.88</td>
+                        <td>0.004</td>
+                      </tr>
+                      <tr class="border-t border-slate-200">
+                        <td class="px-2 py-1 text-left" rowspan="2">第2花房 (2FC)</td>
+                        <td class="px-2 py-1 text-left">対照</td>
+                        <td>2.41</td>
+                        <td>0.27</td>
+                        <td>4.90</td>
+                        <td>0.23</td>
+                        <td>1.15</td>
+                        <td>6.21</td>
+                        <td>31.81</td>
+                        <td>0.004</td>
+                      </tr>
+                      <tr class="bg-emerald-50/10 font-bold text-emerald-800">
+                        <td class="px-2 py-1 text-left">ETNS</td>
+                        <td>2.40</td>
+                        <td class="text-emerald-800 font-extrabold">0.24</td>
+                        <td>4.82</td>
+                        <td>0.23</td>
+                        <td>1.10</td>
+                        <td>6.93</td>
+                        <td>28.87</td>
+                        <td>ND</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>Journal of Agricultural, Life and Environmental Sciences (2022)</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 25 -->
+        <section id="page25" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 25</span>
+              <span class="text-xs text-slate-400 font-medium">生育比較：葉菜・果菜</span>
+            </div>
+
+            <div class="space-y-4 my-auto">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                農業実証事例：主要農作物（キュウリ・トマト・イチゴ）での生育促進実例</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                養液栽培現場における実証写真比較により、ウォーターエンハンサー水処理を受けた養液（Applied）と、一般水による養液（None）での各種果菜類の生育速度・サイズの劇的な差異が記録されています。
+              </p>
+
+              <div class="space-y-3 text-xs">
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-150 shadow-sm space-y-1">
+                  <h4 class="font-bold text-slate-900 text-sm">■ キュウリ (Cucumber) の生育実証</h4>
+                  <p class="text-slate-600 leading-relaxed">
+                    ・<strong>Applied（処理水供給区）：</strong>初期から茎が太く、節間が理想的に締まった状態で成長。展開葉が肉厚で大きく育ち、光合成効率が高いため果実の肥大スピードが<strong>20〜25%加速</strong>。<br>
+                    ・<strong>None（対照区）：</strong>茎がやや細く徒長傾向にあり、実のつきや成長速度に不揃いが生じる。
+                  </p>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-150 shadow-sm space-y-1">
+                  <h4 class="font-bold text-slate-900 text-sm">■ イチゴ (Strawberry) の生育実証</h4>
+                  <p class="text-slate-600 leading-relaxed">
+                    ・<strong>Applied（処理水供給区）：</strong>根系の毛細根発達が爆発的に促進され、クラウン（株元）が太く健康に成長。実の均一性が高く、糖度がアップ。<br>
+                    ・<strong>None（対照区）：</strong>根張りがやや浅く、薬害や吸肥不全で実の肥大にばらつきが多発。
+                  </p>
+                </div>
+              </div>
+
+              <p class="text-xs text-slate-500 leading-relaxed">
+                ※ 本装置が放つ静電パルス水は、溶液中に配合された肥料ミネラルの吸着イオン価を高めるため、根からの栄養吸収負担を最小化し、ストレスを受けることなく理想的に成長させます。
+              </p>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>Agriculture Farming Application</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 26 -->
+        <section id="page26" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 26</span>
+              <span class="text-xs text-slate-400 font-medium">収穫後鮮度・腐敗抑制</span>
+            </div>
+
+            <div class="space-y-4 my-auto">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                収穫後作物におけるカビ防止・鮮度保持・棚持ち期間の検証</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                収穫された果物や野菜（イチゴ・キュウリ等）を対象に、収穫から<strong>7日後（7 days later after
+                  harvest）</strong>における常温・多湿下でのカビの発生、萎れ、および軟化腐敗の進行状況を対比測定した実証検証結果です。
+              </p>
+
+              <div class="grid grid-cols-2 gap-4 text-xs">
+                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50 space-y-2 shadow-sm">
+                  <h4 class="font-extrabold text-slate-900 text-sm">■ 一般水道水栽培区 (None)</h4>
+                  <p class="text-slate-505 leading-relaxed text-xs">
+                    収穫後5日目以降から急激にカビが発生。<br>
+                    <strong>7日経過時点：</strong><br>
+                    果皮表面に「灰色かび病」や軟化カビが広範囲に蔓延。水分損失による萎れとしわが顕著に発生し、自立形状が崩れて市場流通基準を完全に喪失。
+                  </p>
+                </div>
+                <div class="p-4 rounded-xl border border-slate-200 bg-emerald-50/10 space-y-2 shadow-sm">
+                  <h4 class="font-extrabold text-emerald-955 text-sm">■ ウォーターエンハンサー区 (Applied)</h4>
+                  <p class="text-emerald-800 leading-relaxed text-xs">
+                    カビ胞子の付着および増殖が非常に高度に不活化。<br>
+                    <strong>7日経過時点：</strong><br>
+                    果実・野菜表面に<span class="font-bold">カビの発生は一切観察されず</span>、果肉の高度な弾力、ハリ、およびみずみずしい色艶を完璧にキープ。棚持ち寿命が約2倍に延長。
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs text-slate-655 leading-relaxed leading-normal shadow-sm">
+                ・<strong>鮮度長持ちの作用機序：</strong><br>
+                電解静電水により、細胞壁を強化するカルシウムペクチン結合が極めて強固になり、収穫後の自己呼吸消耗やエチレンガスによる細胞軟化プロセスが遅延されます。殺菌水効果と相まってカビ・細菌の繁殖を完全に防ぎます。
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>Agriculture Farming Application</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 27 -->
+        <section id="page27" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 27</span>
+              <span class="text-xs text-slate-400 font-medium">実証：バラ切り花延命</span>
+            </div>
+
+            <div class="space-y-4 my-auto">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                バラ（Rose）の切り花ライフサイクル（花持ち寿命）経時延命実証</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                生花店や観賞用として最も要求される切り花の「花持ち（延命）」性能を評価するため、一般水道水（None）と、ウォーターエンハンサー水処理を1回通過させた水（Applied）に生けたバラの、10日間に及ぶ経時変化比較です。
+              </p>
+
+              <div class="overflow-hidden rounded-xl border border-slate-200 shadow-sm text-xs">
+                <table class="min-w-full divide-y divide-slate-200 text-left">
+                  <thead class="bg-slate-50 font-bold text-slate-700">
+                    <tr>
+                      <th class="px-4 py-2">経過日数</th>
+                      <th class="px-4 py-2">一般水道水区 (None)</th>
+                      <th class="px-4 py-2 text-emerald-800 bg-emerald-50/20 font-bold">ウォーターエンハンサー区 (Applied)</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-200 bg-white text-slate-700">
+                    <tr>
+                      <td class="px-4 py-2.5 font-bold">5日目 (5th days later)</td>
+                      <td class="px-4 py-2.5">花弁の外側から徐々に変色が始まり、ハリが失われ始める。</td>
+                      <td class="px-4 py-2.5 bg-emerald-50/10 font-medium text-emerald-900 font-bold">
+                        茎がピンと立ち、つぼみと開花が完璧に美しく維持。</td>
+                    </tr>
+                    <tr class="bg-slate-50/50">
+                      <td class="px-4 py-2.5 font-bold">6日目 (6th days later)</td>
+                      <td class="px-4 py-2.5">導管が雑菌繁殖で目詰まりを起こし、首折れ（しおれ）が多発。</td>
+                      <td class="px-4 py-2.5 bg-emerald-50/10 font-medium text-emerald-900 font-bold">
+                        カビや細菌の増殖がなく、みずみずしさを高度に維持。</td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-2.5 font-bold">10日目 (10th days later)</td>
+                      <td class="px-4 py-2.5 text-rose-600">花弁が完全に茶色に変枯。落葉し、切り花としての鑑賞寿命が終了。</td>
+                      <td class="px-4 py-2.5 bg-emerald-50/10 font-extrabold text-emerald-800">10日経過時も変色や萎れがなく、美しく咲き誇る。
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div
+                class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 text-xs text-slate-655 leading-relaxed shadow-sm">
+                ・<strong>水質無菌化と小分子活性水の相乗延命効果：</strong><br>
+                切り花の寿命を縮める最大の要因は、生け水内で増殖した雑菌が切り口の導管を塞ぎ、吸水できなくなることです。ウォーターエンハンサー水は強力な抗菌作用で導管詰まりを防ぎ、かつ細小化された水クラスターが導管をスムーズに上昇するため、2倍近くに寿命を延ばすことが可能になります。
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>Agriculture Farming Application</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 28 -->
+        <section id="page28" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 28</span>
+              <span class="text-xs text-slate-400 font-medium">実証：播種幼根発達速度</span>
+            </div>
+
+            <div class="space-y-4 my-auto">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                種子播種・育苗期における「発芽率および発根伸長」比較実証</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                育苗トレイを用いた、播種後<strong>6日目（6 days later）</strong>および<strong>13日目（13 days
+                  later）</strong>における、一般水道水（None）とウォーターエンハンサー水（Applied）での幼苗の発根発達・伸長スピードの比較結果です。
+              </p>
+
+              <div class="grid grid-cols-2 gap-4 text-xs">
+                <div class="rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-2 shadow-sm text-center">
+                  <h4 class="font-extrabold text-slate-900 text-xs">■ 播種後6日経過時 (6 days later)</h4>
+                  <p class="text-slate-600 leading-relaxed text-xs text-left">
+                    ・<strong>水道水区 (None)：</strong>
+                    発芽が不揃い。多くのセルで種皮が被ったままであり、発根伸長が遅く細根の発達が確認できない。<br>
+                    ・<strong>処理水区 (Applied)：</strong>
+                    ほぼ100%発芽。幼芽が均一に立ち上がり、細根が培地を包み込むように旺盛に発達し始める。
+                  </p>
+                </div>
+                <div class="rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-2 shadow-sm text-center">
+                  <h4 class="font-extrabold text-slate-900 text-xs">■ 播種後13日経過時 (13 days later)</h4>
+                  <p class="text-slate-600 leading-relaxed text-xs text-left">
+                    ・<strong>水道水区 (None)：</strong>
+                    苗長に高低差があり不均一。根張りが弱く、定植時に根鉢が崩れやすい。<br>
+                    ・<strong>処理水区 (Applied)：</strong>
+                    すべての苗が均一な高さに揃う。<strong>根張りが極めて強固</strong>であり、培地内の肥料イオンを高度に吸収できる太い本根と細根が密集して発達。
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="bg-emerald-50/20 p-3.5 rounded-xl border border-emerald-100 text-xs text-slate-700 leading-relaxed">
+                ・<strong>初期育苗管理の重要性：</strong><br>
+                初期発根スピードの向上は、定植後の青枯病等の土壌病害に対する免疫力を高め、育苗期間そのものを最大25%短縮させます。これは農家における回転率・暖房・管理費の劇的な節減に直結します。
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>Agriculture Farming Application</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 29 -->
+        <section id="page29" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 29</span>
+              <span class="text-xs text-slate-400 font-medium">実証：観葉植物生育</span>
+            </div>
+
+            <div class="space-y-4 my-auto">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                オフィス・ビル・家庭緑化：観葉植物における生長速度の比較実証</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                観葉植物の新芽立ち上がりおよび葉身伸長能力を評価するため、一般水道水（None）と、ウォーターエンハンサー通過水（Applied）を潅水し、<strong>2日後（2 days
+                  later）</strong>および<strong>6日後（6 days later）</strong>の発育状況を追跡した写真検証事例です。
+              </p>
+
+              <div class="grid grid-cols-2 gap-4 text-xs">
+                <div class="rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-2 shadow-sm text-center">
+                  <h4 class="font-extrabold text-slate-900 text-xs">■ 潅水 2日後 (2 days later)</h4>
+                  <p class="text-slate-600 leading-relaxed text-xs text-left">
+                    ・<strong>水道水区 (None)：</strong>
+                    新葉や新芽に明確な変化は見られず、土壌中水分・栄養分の吸収移行が緩慢。<br>
+                    ・<strong>処理水区 (Applied)：</strong>
+                    水のクラスターが微細なため、潅水直後から速やかに細胞膜に浸透。主葉身がみずみずしくなり、新芽の立ち上がりが活性化。
+                  </p>
+                </div>
+                <div class="rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-2 shadow-sm text-center">
+                  <h4 class="font-extrabold text-slate-900 text-xs">■ 潅水 6日後 (6 days later)</h4>
+                  <p class="text-slate-600 leading-relaxed text-xs text-left">
+                    ・<strong>水道水区 (None)：</strong>
+                    6日経過時も新葉の伸長が鈍く、発育の遅れが生じている。<br>
+                    ・<strong>処理水区 (Applied)：</strong>
+                    主株の節部から<strong>若々しい新葉がはっきりと力強く伸長展開</strong>。濃い緑色（SPAD値）を達成。
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="bg-emerald-50/20 p-3.5 rounded-xl border border-emerald-100 text-xs text-slate-700 leading-relaxed">
+                ・<strong>土壌保水力とイオン供給能の改善：</strong><br>
+                電解静電水は、土壌培地の毛管作用（Capillary action）を促進するため、土壌深部まで水分と肥料成分が均一にいきわたり、乾燥・過湿ストレスを受けない健康的な生長を促進させます。
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>Residential & Greenery Application</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 30 -->
+        <section id="page30" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 30</span>
+              <span class="text-xs text-slate-400 font-medium">牛乳・イチゴ抗菌比較</span>
+            </div>
+
+            <div class="space-y-4 my-auto text-xs">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                食品衛生：常温における生鮮食品（牛乳・イチゴ）の防腐・防カビ試験</h3>
+              <p class="text-slate-600 leading-relaxed text-xs">
+                装置の持つ抗菌（Staphylococcus
+                Aureus、その他真菌）性能が、食品の鮮度保存・防腐にどこまで実用的に寄与するかを評価するため、「Applied（電解静電処理水）」「水道水」「市販ミネラルウォーター」を使い、常温多湿下で<strong>3日間（3
+                  days later）</strong>放置した食品の劣化比較です。
+              </p>
+
+              <div class="overflow-hidden rounded-xl border border-slate-200 shadow-sm">
+                <table class="min-w-full divide-y divide-slate-200 text-xs text-left">
+                  <thead class="bg-slate-50 font-bold text-slate-700">
+                    <tr>
+                      <th class="px-4 py-2">試験食品対象</th>
+                      <th class="px-4 py-2">水道水 / 市販ミネラルウォーター（未処理）</th>
+                      <th class="px-4 py-2 text-emerald-800 bg-emerald-50/20 font-bold">ウォーターエンハンサー水 (Applied)</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-200 bg-white text-slate-700">
+                    <tr>
+                      <td class="px-4 py-3 font-bold">新鮮な牛乳 (Milk)</td>
+                      <td class="px-4 py-3 text-rose-600">
+                        乳酸菌および雑菌の急速な繁殖により、3日後に完全に凝固（分離析出）。酸敗臭（異臭）を放ち完全腐敗。
+                      </td>
+                      <td class="px-4 py-3 bg-emerald-50/10 font-semibold text-emerald-900 font-bold">
+                        雑菌活動が不活化され、3日後も白い液体状態（非凝固）を完全に維持。腐敗臭を抑止。
+                      </td>
+                    </tr>
+                    <tr class="bg-slate-50/50">
+                      <td class="px-4 py-3 font-bold">完熟イチゴ (Strawberry)</td>
+                      <td class="px-4 py-3 text-rose-600">
+                        カビ胞子が増殖。イチゴの表面に灰色かびが白く密集して蔓延。果皮が崩れてドロドロに液状軟化。
+                      </td>
+                      <td class="px-4 py-3 bg-emerald-50/10 font-bold text-emerald-800 font-bold">
+                        カビの胞子活動が極限に抑えられ、カビ発生ゼロ。果肉のハリ、ヘタの緑色の鮮度を完璧に維持。
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div
+                class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-[11px] text-slate-650 leading-relaxed shadow-sm">
+                ・<strong>食品包装・洗浄現場へのメリット：</strong><br>
+                この卓越した防腐殺菌性能は、食品加工プラントにおける生鮮野菜・カットサラダの洗浄用水、食肉工場の清浄洗浄水として導入することで、保存添加用化学物質の添加量を完全にゼロ化・削減させ、消費者に最高に安全かつ長持ちする生鮮食品を届けるための基礎技術となります。
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>Food Preservation & Safety Test</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 31 -->
+        <section id="page31" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 31</span>
+              <span class="text-xs text-slate-400 font-medium">実証：エビ養殖殺菌</span>
+            </div>
+
+            <div class="space-y-4 my-auto">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                水産養殖：バナメイエビ養殖池における白斑ウイルス（WSSV）感染死の防止</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                エビ（Shrimp）の水産養殖において最も恐れられる<strong>白斑病ウイルス（White Spot Syndrome
+                  Virus）</strong>の伝染死からエビ群を守るため、大規模実証に適用されたウォーターエンハンサー（80Aモデル、42t/h処理）の検証内容です。
+              </p>
+
+              <div class="space-y-3 text-xs">
+                <div class="rounded-xl border border-slate-200 bg-slate-50/50 p-4 space-y-1.5 shadow-sm text-xs">
+                  <h4 class="font-extrabold text-slate-950 text-xs">■ 10,890 m² 超大規模実証プラントの運用パラメータ</h4>
+                  <p class="text-slate-600 text-[11px] leading-relaxed">
+                    ・養殖池総面積: <strong>10,890 m²（水深 2.0 m）</strong>　/　総循環水量: <strong>21,780 トン（ton）</strong><br>
+                    ・導入装置仕様: <strong>80Aシステムモデル（1時間あたりの循環水処理量 42トン）</strong><br>
+                    ・<strong>斃死率の定量的推移：</strong>水道水・未処理ラインに比べてエビの突然死・全滅障害が完全に予防され、抗生防薬化学製品を一切投入することなく、極めて高度な歩留まり出荷（
+                    yield ）を確立。
+                  </p>
+                </div>
+
+                <div
+                  class="bg-emerald-50/20 p-3.5 rounded-xl border border-emerald-100 text-slate-700 leading-relaxed leading-normal shadow-sm">
+                  ・<strong>エビ養殖水質化改善の仕組み：</strong><br>
+                  白斑ウイルスなどの病原性桿菌類を電磁力で穿孔不活化させ、感染力を奪います。さらに、水中の溶存酸素率が向上し、高密度養殖時でも窒息不全が発生せず、肉厚な高タンパク・エビの急速収穫に多大に貢献します。
+                </div>
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>Aquaculture Application: Shrimp Pond</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 32 -->
+        <section id="page32" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 32</span>
+              <span class="text-xs text-slate-400 font-medium">アワビ養殖石灰沈着予防</span>
+            </div>
+
+            <div class="space-y-4 my-auto">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                高級アワビ養殖：飼育槽内の細菌・黒ヌメリおよび不均一石灰沈着の防止</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                陸上および海洋のアワビ（Abalone）養殖施設において、アワビの殻表面の異常発育（Calcification）や、水槽・配管に発生する頑固な粘泥（黒ヌメリスライム）、アワビを死滅させる細菌（Generated
+                Bacteria）に対する抑制効果を記録した検証結果です。
+              </p>
+
+              <div class="grid grid-cols-2 gap-4 text-xs">
+                <div class="rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-2 shadow-sm text-xs">
+                  <h4 class="font-extrabold text-slate-900 text-xs">■ 一般海水循環管理 (None)</h4>
+                  <p class="text-slate-500 leading-relaxed text-xs">
+                    水槽内の壁面や給餌トレイに細菌や藻類が泥状に蓄積（ヌメリスライム）。<br>
+                    ・<strong>アワビへの影響：</strong>殻のカルシウム石灰化蓄積（Calcification）が歪に成長、アワビ同士が密着。隙間の細菌増殖によって呼吸・摂食不全が発生し、斃死率が上がって品質が低下。
+                  </p>
+                </div>
+                <div class="rounded-xl border border-slate-200 bg-emerald-50/10 p-4 space-y-2 shadow-sm text-xs">
+                  <h4 class="font-extrabold text-emerald-950 text-sm">■ 装置電解水循環管理 (Applied)</h4>
+                  <p class="text-emerald-850 leading-relaxed text-xs">
+                    Ca・Mg成分が安定したコロイド粒子に変化。<br>
+                    ・<strong>アワビへの好影響：</strong>不均一な石灰化（カル固着）が完璧に防止され、殻の形状が対称に美しく健康的に発達。アオコや有害菌の繁殖がなく、水槽が長期間無菌クリーンに保たれ、餌の効率が向上。
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs text-slate-655 leading-relaxed shadow-sm">
+                ・<strong>アワビ養殖収量向上：</strong><br>
+                アワビ自体の免疫代謝を刺激し、身入りが良く、厚みのある最高等級アワビの出荷を可能にします。水槽の定期的ブラッシング洗浄回数も大幅カットされ、労力を劇的に削減します（Generated
+                Bacteria等への優れた抗菌力）。
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>Aquaculture Application: Abalone tank</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 33 -->
+        <section id="page33" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 33</span>
+              <span class="text-xs text-slate-400 font-medium">景観池：壁面コケ藻類分解</span>
+            </div>
+
+            <div class="space-y-4 my-auto">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                屋外景観池・人工滝：壁面グリーン藻類および苔の消失効果</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                2014年シンガポールの商業設備の中庭にある人工の壁面景観池（中庭人工滝池）を対象とし、高照度（太陽光）下で発生する壁面や底部の頑固な緑コケ・ヌメリを、ウォーターエンハンサー水処理システム（80Aモデル、42t/h処理）を挿入連動させて稼働した際の実地除去プロセスです。
+              </p>
+
+              <div class="grid grid-cols-2 gap-4 text-xs">
+                <div class="rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-2 shadow-sm text-xs">
+                  <h4 class="font-extrabold text-slate-900 text-xs">■ 装置稼働前 (None)</h4>
+                  <p class="text-slate-505 leading-relaxed text-xs">
+                    中庭の巨大な滝状の壁石すべてに、分厚い緑色の苔（藻類のコロニー）が密着。<br>
+                    水自体も深い緑色（アオコ水）に濁り、水底が一切見えず、有機有機物の腐敗アミン臭が放散される劣悪な景観状態。
+                  </p>
+                </div>
+                <div class="rounded-xl border border-slate-200 bg-emerald-50/10 p-4 space-y-2 shadow-sm text-xs">
+                  <h4 class="font-extrabold text-emerald-950 text-xs">■ 装置稼働 2週間後 / 60週間連続維持</h4>
+                  <p class="text-emerald-850 leading-relaxed text-xs">
+                    静電分解エネルギーが壁面のコケを完全に遊離剥離。<br>
+                    壁面のコンクリート石材の表面から<span
+                      class="font-bold">コケ・藻類が100%消失・分解され剥離</span>され、元の綺麗な石の色が露出。水が水晶のように清透化（Turbidity低下）し、悪臭が完全消失。
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 text-xs text-slate-655 leading-relaxed shadow-sm">
+                ・<strong>藻類・コケ固着のシャットアウト効果：</strong><br>
+                一度壁面から遊離剥離したコケ細胞は、ゼータ電位の反発効果により、壁石に再度吸着することができなくなります。化学除草剤や殺藻剤を一切投入することなく、この圧倒的なクリーン美観状態を長期間にわたり維持することができます。
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>Algae removal in Singapore (2 weeks & 60 weeks later)</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 34 -->
+        <section id="page34" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 34</span>
+              <span class="text-xs text-slate-400 font-medium">公認：藻類クロロフィル分析</span>
+            </div>
+
+            <div class="space-y-4 my-auto">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                公認機関（韓国海洋水産部）実証：アオコ・緑藻類（クロロフィル）減少分析</h3>
+              <p class="text-slate-655 text-xs leading-relaxed">
+                大韓民国の<strong>海洋水産部・西海水産研究所</strong>で、ウォーターエンハンサーの殺藻・藻類分解性能を科学的に定量化するため、[A][B]（未処理コントロール水槽）と[C][D]（装置処理水槽）に同一のアオコ菌株を植菌し、<strong>5日後（5
+                  days later）</strong>における水中内のクロロフィル（Chlorophyll）濃度（μg/L）の変化を評価した実証データです。
+              </p>
+
+              <div class="bg-slate-50 p-4 rounded-xl border border-slate-150 shadow-sm space-y-3 text-xs">
+                <h4 class="font-bold text-slate-900 text-xs">■ 5日経過時におけるアオコ・クロロフィル濃度（Chlorophyll Density, μg/L）対比</h4>
+
+                <div class="space-y-2">
+                  <div class="flex justify-between items-center text-xs font-semibold">
+                    <span class="text-slate-600">コントロール水槽 [A]（未処理水道水）</span>
+                    <span class="text-rose-600 font-mono">7.1 μg/L</span>
+                  </div>
+                  <div class="w-full bg-slate-200 h-3 rounded-full overflow-hidden">
+                    <div class="bg-rose-500 h-full" style="width: 95%"></div>
+                  </div>
+                </div>
+
+                <div class="space-y-2">
+                  <div class="flex justify-between items-center text-xs font-semibold">
+                    <span class="text-slate-600">コントロール水槽 [B]（未処理自然水）</span>
+                    <span class="text-rose-500 font-mono">4.5 μg/L</span>
+                  </div>
+                  <div class="w-full bg-slate-200 h-3 rounded-full overflow-hidden">
+                    <div class="bg-rose-400 h-full" style="width: 60%"></div>
+                  </div>
+                </div>
+
+                <div class="space-y-2">
+                  <div class="flex justify-between items-center text-xs font-bold text-emerald-800">
+                    <span>処理水槽 [C]（ウォーターエンハンサー水）</span>
+                    <span class="font-mono">0.5 μg/L</span>
+                  </div>
+                  <div class="w-full bg-slate-200 h-3 rounded-full overflow-hidden">
+                    <div class="bg-emerald-600 h-full" style="width: 7%"></div>
+                  </div>
+                </div>
+
+                <div class="space-y-2">
+                  <div class="flex justify-between items-center text-xs font-bold text-emerald-800">
+                    <span>処理水槽 [D]（ウォーターエンハンサー水）</span>
+                    <span class="font-mono">0.5 μg/L</span>
+                  </div>
+                  <div class="w-full bg-slate-200 h-3 rounded-full overflow-hidden">
+                    <div class="bg-emerald-600 h-full" style="width: 7%"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="bg-emerald-50/20 p-3 rounded-xl border border-emerald-100 text-xs text-slate-700 leading-normal">
+                ・<strong>アオコ除去効率（Algae Rejection Efficiency）評価：</strong><br>
+                未処理水槽（[A],[B]）では藻類が急激に繁殖して水中が深緑の不透明に濁ったのに対し、ウォーターエンハンサー通過区（[C],[D]）では、静電電極エネルギーがアオコの葉緑素（クロロフィル）を破壊して光合成能を不活化させ、<strong>5日後にほぼ完全に死滅・消失（90%以上の藻類除去）</strong>させ、澄んだ高い水質透明度を保ちました。
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>Algae Test: Ministry of Oceans and Fisheries</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 35 -->
+        <section id="page35" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 35</span>
+              <span class="text-xs text-slate-400 font-medium">温水プールアオコ分解</span>
+            </div>
+
+            <div class="space-y-4 my-auto">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                プール実証：アルゼンチンでの屋外大型プールアオコ分解・清澄事例</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                2020年アルゼンチンの一般住宅に隣接する、日照による急激なアオコの繁殖で全体が「不透明な深緑色」にまで劣化した屋外の大型コンクリートプールを対象に、ウォーターエンハンサー循環システムを接続して稼働させた際の水質清澄化プロセスです。
+              </p>
+
+              <div class="grid grid-cols-2 gap-4 text-xs">
+                <div class="rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-2 shadow-sm text-xs">
+                  <h4 class="font-extrabold text-slate-900 text-xs">■ 装置導入前 (None)</h4>
+                  <p class="text-slate-505 leading-relaxed text-xs">
+                    プール全体が深い緑濁（Chlorophyll過多）に染まり、水底のモザイクタイルが完全に視認不能。カビ系のドロドロとした浮遊ヘドロが発生し、塩素化学剤を大量に投入しても全く改善しない最悪な衛生状態。
+                  </p>
+                </div>
+                <div class="rounded-xl border border-slate-200 bg-emerald-50/10 p-4 space-y-2 shadow-sm text-xs">
+                  <h4 class="font-extrabold text-emerald-955 text-xs">■ 装置稼働 14日後 (14 days later)</h4>
+                  <p class="text-emerald-850 leading-relaxed text-xs">
+                    塩素殺菌剤などの追加ケミカルを一切施用せず、処理水循環のみを適用。<br>
+                    緑色を帯びていたプランクトンが高度に電磁分解・凝集ろ過され、<strong>14日後に底面タイルが完璧に視認できるまでの清澄なコバルトブルーの水質を復活</strong>。
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 text-xs text-slate-655 leading-relaxed shadow-sm">
+                ・<strong>塩素アレルギーを防止するエコなプール管理：</strong><br>
+                一般に温水プール・スパ施設ではアオコやレジオネラ菌抑制のために多量の塩素薬品を投入し、肌荒れや目・鼻の粘膜へのアレルギーが多発しますが、ウォーターエンハンサー水処理を設置することで、無薬で高い水質透明度と無菌状態を維持し、利用者に最高に健康的でクリアな泳ぎ環境を約束します。
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>Algae removal in Argentina (2020Yr, 14 days later)</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 36 -->
+        <section id="page36" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 36</span>
+              <span class="text-xs text-slate-400 font-medium">配管内錆スケール定量的除去</span>
+            </div>
+
+            <div class="space-y-4 my-auto">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                公認機関（KTR）実証：配管内壁のスケール・スライム・赤錆の定量的削減</h3>
+              <p class="text-sm text-slate-655 leading-relaxed text-xs">
+                大韓民国の公的な融合試験研究機関である<strong>韓国化学融合試験研究院（KTR）</strong>により、長期間温温水・冷却循環によって管内壁に硬質に固着したカルシウムスケール、赤錆を対象とし、本装置処理水の循環による削減効率を定量評価したテストデータです。
+              </p>
+
+              <div class="bg-slate-50 p-4 rounded-xl border border-slate-150 shadow-sm space-y-3.5 text-xs">
+                <h4 class="font-bold text-slate-900 text-sm">■ 装置稼働から40日経過時における削減比率データ (KTR公認認証)</h4>
+
+                <div class="space-y-2">
+                  <div class="flex justify-between items-center text-xs">
+                    <span class="font-semibold text-slate-500">配管内壁に沈着固着した酸化鉄（赤錆）・Ca硬質スケール量 (Before)</span>
+                    <span class="font-bold text-slate-800">100% (蓄積状態)</span>
+                  </div>
+                  <div class="w-full bg-slate-200 h-3.5 rounded-full overflow-hidden">
+                    <div class="bg-rose-500 h-full" style="width: 100%"></div>
+                  </div>
+                </div>
+
+                <div class="space-y-2">
+                  <div class="flex justify-between items-center text-xs">
+                    <span class="font-bold text-emerald-700">ウォーターエンハンサー処理水 40日間常時循環後の沈着残存率 (After)</span>
+                    <span class="font-extrabold text-emerald-800">10% (ほぼ完全除去を達成)</span>
+                  </div>
+                  <div class="w-full bg-slate-200 h-3.5 rounded-full overflow-hidden">
+                    <div class="bg-emerald-600 h-full" style="width: 10%"></div>
+                  </div>
+                </div>
+
+                <div class="border-t border-slate-200 pt-2.5 text-center">
+                  <span
+                    class="inline-block bg-emerald-100 text-emerald-800 font-extrabold text-xs px-4.5 py-1.5 rounded-full shadow-sm">
+                    KTR試験において、40日間の常時循環により【錆・スケールを90%削減】したことを立証！
+                  </span>
+                </div>
+              </div>
+
+              <p class="text-xs text-slate-650 leading-relaxed">
+                静電処理パルスによって水中に生成される高濃度の微細炭酸および電離活性イオンが、管内壁に強固に結合した不溶性の $\text{CaCO}_3$
+                をイオン溶解させて水中に優しく遊離させます。同時に、内壁を傷つけることなく既存の錆・スケールを溶解して除去します。
+              </p>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>KTR Test Report: Scale, Slime, & Rust Removal 90% reduction / 40 days</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 37 -->
+        <section id="page37" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 37</span>
+              <span class="text-xs text-slate-400 font-medium">設置実例構造一覧</span>
+            </div>
+
+            <div class="space-y-4 my-auto">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                アジア・世界各国（シンガポール・フィリピン・韓国）での設置実例</h3>
+              <p class="text-sm text-slate-650 leading-relaxed">
+                UNGウォーターエンハンサー水処理システムは、その卓越した電磁気的スケール錆防止、殺菌、軟水化効果により、各国の主要大規模プラント、冷却塔、温室農場、ビル空調設備において長年にわたり安定的に設置稼働されています。
+              </p>
+
+              <div class="space-y-3 text-xs">
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-150 shadow-sm space-y-1">
+                  <h4 class="font-bold text-slate-900 text-sm">■ 冷却塔循環ラインへの設置実例（シンガポール他）</h4>
+                  <p class="text-slate-600 leading-relaxed text-xs">
+                    ・<strong>取付配管：</strong>大口径 150A 〜 300A フランジ接続型を、冷却塔の冷水戻り（Return）主幹配管の立ち上がり部位に対してインライン設置。<br>
+                    ・<strong>効果：</strong>アオコの繁殖を化学殺藻剤ゼロで完全に不活化、熱交換器の閉塞を阻止、システムの電力消費を最大15%セーブ。
+                  </p>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-150 shadow-sm space-y-1">
+                  <h4 class="font-bold text-slate-900 text-sm">■ 農業温室・自動養液給液プラント設置実例（大韓民国）</h4>
+                  <p class="text-slate-600 leading-relaxed text-xs">
+                    ・<strong>取付配管：</strong>50A 〜 80A 接続型を、養液供給用メインタンクの外部循環ループ（バイパスライン）に設置。<br>
+                    ・<strong>効果：</strong>培養液のCaやMgを電離活性化。トマトの尻腐れ果、チコリーの不稔障害を高度に抑制。配管ノズル内のコケを完全防止。
+                  </p>
+                </div>
+              </div>
+
+              <p class="text-xs text-slate-500 leading-relaxed leading-normal">
+                ※ 取付フランジ面はJIS /
+                ANSIなどの各種規格に準拠。本体部分はオールステンレス（SUS304/SUS316L等）の頑丈な防水防蝕防護カバー構造を採用しており、屋外への設置や多湿プラント室、農業ハウス環境でも安心して導入稼働いただけます。
+              </p>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>Installation in Singapore, Philippine, and Korea</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 38 -->
+        <section id="page38" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 38</span>
+              <span class="text-xs text-slate-400 font-medium">寸法設計規格仕様表</span>
+            </div>
+
+            <div class="space-y-2.5 my-auto">
+              <h3 class="text-xs sm:text-sm font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                配管寸法口径別の精密寸法設計スペック規格・処理流量一覧表 (15A〜500A)</h3>
+
+              <div class="overflow-hidden rounded-xl border border-slate-200 shadow-sm">
+                <table class="min-w-full divide-y divide-slate-200 text-[10.5px] text-right">
+                  <thead class="bg-slate-50 text-slate-700 font-bold">
+                    <tr class="divide-x divide-slate-100">
+                      <th class="px-1 py-0.5 text-left">配管径</th>
+                      <th class="px-1 py-0.5">H (mm)</th>
+                      <th class="px-1 py-0.5">C (mm)</th>
+                      <th class="px-1 py-0.5">B (mm)</th>
+                      <th class="px-1 py-0.5">流速 L/s</th>
+                      <th class="px-1 py-0.5">流量 t/h</th>
+                      <th class="px-1 py-0.5">1日流量 t/d</th>
+                      <th class="px-1 py-0.5">電極数</th>
+                      <th class="px-1 py-0.5">電力</th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    class="divide-y divide-slate-200 bg-white text-slate-700 divide-x divide-slate-100 font-medium">
+                    <tr>
+                      <td class="px-1 py-0.5 text-left font-bold">15A</td>
+                      <td class="font-mono">200</td>
+                      <td class="font-mono">95</td>
+                      <td class="font-mono">70</td>
+                      <td class="font-mono">0.5</td>
+                      <td class="font-mono">1.9</td>
+                      <td class="font-mono">46</td>
+                      <td class="font-mono">1 枚</td>
+                      <td class="font-mono">15W</td>
+                    </tr>
+                    <tr class="bg-slate-50/30">
+                      <td class="px-1 py-0.5 text-left font-bold">25A</td>
+                      <td class="font-mono">200</td>
+                      <td class="font-mono">95</td>
+                      <td class="font-mono">70</td>
+                      <td class="font-mono">1.5</td>
+                      <td class="font-mono">5.3</td>
+                      <td class="font-mono">128</td>
+                      <td class="font-mono">1 枚</td>
+                      <td class="font-mono">15W</td>
+                    </tr>
+                    <tr>
+                      <td class="px-1 py-0.5 text-left font-bold">50A</td>
+                      <td class="font-mono">200</td>
+                      <td class="font-mono">95</td>
+                      <td class="font-mono">70</td>
+                      <td class="font-mono">5.1</td>
+                      <td class="font-mono">18.0</td>
+                      <td class="font-mono">444</td>
+                      <td class="font-mono">1 枚</td>
+                      <td class="font-mono">15W</td>
+                    </tr>
+                    <tr class="bg-slate-50/30">
+                      <td class="px-1 py-0.5 text-left font-bold">80A</td>
+                      <td class="font-mono">200</td>
+                      <td class="font-mono">105</td>
+                      <td class="font-mono">100</td>
+                      <td class="font-mono">11.6</td>
+                      <td class="font-mono">42.0</td>
+                      <td class="font-mono">999</td>
+                      <td class="font-mono">1 枚</td>
+                      <td class="font-mono">15W</td>
+                    </tr>
+                    <tr>
+                      <td class="px-1 py-0.5 text-left font-bold">150A</td>
+                      <td class="font-mono">444</td>
+                      <td class="font-mono">280</td>
+                      <td class="font-mono">200</td>
+                      <td class="font-mono">41.0</td>
+                      <td class="font-mono">144.0</td>
+                      <td class="font-mono">3,456</td>
+                      <td class="font-mono">2 枚</td>
+                      <td class="font-mono">15W</td>
+                    </tr>
+                    <tr class="bg-slate-50/30">
+                      <td class="px-1 py-0.5 text-left font-bold">250A</td>
+                      <td class="font-mono">448</td>
+                      <td class="font-mono">400</td>
+                      <td class="font-mono">300</td>
+                      <td class="font-mono">109.0</td>
+                      <td class="font-mono">387.0</td>
+                      <td class="font-mono">9,288</td>
+                      <td class="font-mono">3 枚</td>
+                      <td class="font-mono">15W</td>
+                    </tr>
+                    <tr>
+                      <td class="px-1 py-0.5 text-left font-bold">400A</td>
+                      <td class="font-mono">456</td>
+                      <td class="font-mono">560</td>
+                      <td class="font-mono">450</td>
+                      <td class="font-mono">255.0</td>
+                      <td class="font-mono">904.0</td>
+                      <td class="font-mono">21,696</td>
+                      <td class="font-mono">4 枚</td>
+                      <td class="font-mono">15W</td>
+                    </tr>
+                    <tr class="bg-slate-50/30">
+                      <td class="px-1 py-0.5 text-left font-bold">500A</td>
+                      <td class="font-mono">460</td>
+                      <td class="font-mono">675</td>
+                      <td class="font-mono">550</td>
+                      <td class="font-mono">400.0</td>
+                      <td class="font-mono">1,422.0</td>
+                      <td class="font-mono">34,128</td>
+                      <td class="font-mono">5 枚</td>
+                      <td class="font-mono">15W</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="text-[10px] text-slate-500 leading-normal">
+                ※ 口径寸法：JIS規格に準ずるフランジ構造を採用。各型番とも、水質のイオン電離に要する静電制御消費電力は「15W」をキープする超省電力設計であり、長時間の連続ランニングコストは最小限に抑えられます。
+              </p>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>System Dimension Specification (15A 〜 500A)</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 39 -->
+        <section id="page39" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 39</span>
+              <span class="text-xs text-slate-400 font-medium">設置施工3大マニュアル</span>
+            </div>
+
+            <div class="space-y-4 my-auto text-xs">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 border-l-4 border-emerald-500 pl-2">
+                プラントおよび給水設備への3つの設置設計方式マニュアル</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                プラントの構造や、給水量制御目標に応じて、以下の3つの主要な配管ラインシステムに装置を組み込んで設置施工を行ってください。
+              </p>
+
+              <div class="space-y-3 text-xs sm:text-sm">
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-150 shadow-sm space-y-1">
+                  <h4 class="font-bold text-emerald-800 text-xs">① 方式 1：メイン供給ライン直結インライン方式 (In-Line Direct Connection)
+                  </h4>
+                  <p class="text-slate-600 leading-relaxed text-xs">
+                    ・<strong>設置施工：</strong>入水配管（Inlet）から出水配管（Outlet）の間に、フランジボルトを介してウォーターエンハンサー装置本体を標準的なインライン設置（直列）にします。<br>
+                    ・<strong>推奨条件：</strong>常時一定流量の水を配管に流し、連続給液または給水するプロセスに最適です。
+                  </p>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-150 shadow-sm space-y-1">
+                  <h4 class="font-bold text-emerald-800 text-xs">② 方式 2：貯水タンク給水一回通過ライン方式 (Liquid Tank One-Pass)</h4>
+                  <p class="text-slate-600 leading-relaxed text-xs">
+                    ・<strong>設置施工：</strong>貯水用の液タンク（Liquid Tank）に給水される一次原水供給配管に装置を割り込み設置。処理された水を一旦タンクへ全量ストックします。<br>
+                    ・<strong>推奨条件：</strong>一時的に貯水し、そこから送水ポンプで適時必要量を各プロセスに給水・配給するバッチ処理に最適です。
+                  </p>
+                </div>
+
+                <div class="p-3 bg-emerald-50/20 rounded-lg border border-emerald-100 shadow-sm space-y-1">
+                  <h4 class="font-bold text-emerald-950 text-xs">③ 方式 3：液タンク外部循環型還流バイパス方式 (Liquid Tank Circulation)</h4>
+                  <p class="text-slate-655 leading-relaxed text-xs">
+                    ・<strong>設置施工：</strong>メイン液タンクの側面に循環用バイパス水路を設定。循環用ポンプを挟んで装置を設置し、タンク内の水を常に常時循環・還流（Circulation）させます。<br>
+                    ・<strong>推奨条件：</strong>タンクに蓄えられる水質（溶液活性度や除菌・アオコ分解能）を常に最大レベルで維持する栽培養液や冷却塔、観賞池に最適です。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>Installation Guidelines & Layout Methods</span>
+              <span>U&G Technology Co., Ltd.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAGE 40 -->
+        <section id="page40" class="a4-container">
+          <div class="content-flow">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">PAGE 40</span>
+              <span class="text-xs text-slate-400 font-medium">結びと結語</span>
+            </div>
+
+            <div class="text-center my-auto py-16 space-y-4">
+              <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest">UNGWATER TREATMENT SYSTEM</h3>
+              <div class="h-1.5 w-24 bg-emerald-500 mx-auto my-4"></div>
+
+              <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                Thank You
+              </h2>
+              <p class="text-base text-slate-500 font-mono tracking-wide">
+                静電界水質改善ソリューションのグローバルリーディング
+              </p>
+
+              <div
+                class="inline-block bg-slate-50 px-8 py-5 rounded-2xl border border-slate-150 text-center text-xs space-y-1 shadow-sm">
+                <span class="block font-bold text-slate-800">U&G Technology Co., Ltd.</span>
+                <span class="block text-slate-500 font-mono">www.UNGth.com</span>
+                <span class="block text-slate-400 text-[10px] mt-1">日・米・韓・EU公認認証完了 独占特許静電界技術</span>
+              </div>
+            </div>
+
+            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-100 pt-2 font-medium">
+              <span>グローバルテクニカルサポートデスク</span>
+              <span>U&G Technology Co., Ltd. All Rights Reserved.</span>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <footer class="bg-slate-900 text-slate-400 py-8 mt-12 border-t border-slate-800 no-print">
+    <div class="mx-auto max-w-7xl px-4 text-center text-xs space-y-1">
+      <p class="text-slate-300 font-bold">U&G Technology Co., Ltd. - UNGウォーターエンハンサー水処理システム</p>
+      <p class="text-[10px] text-slate-500 font-medium">© 2026 UNG Water Treatment Project translation resources. All
+        Rights Reserved.</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

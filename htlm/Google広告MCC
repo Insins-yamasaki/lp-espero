@@ -1,0 +1,235 @@
+function main() {
+  // ============================================================
+  // Google広告 MCC レポート自動出力スクリプト（本番用）
+  // MCC配下の全アカウントのキャンペーン効果測定レポートを
+  // Googleスプレッドシートに自動出力します
+  // ============================================================
+
+  var SPREADSHEET_URL = 'https://docs.google.com/spreadsheets/d/1Ls9eCG82Ti_XnmnEEBbt1-t1rA86VjVZDCLXy425ALE/edit';
+  var sheetName = 'キャンペーンレポート';
+
+  // 日本時間(UTC+9)で日付を計算する関数
+  function getJSTDate() {
+    var now = new Date();
+    // UTCミリ秒に9時間（= 9*60*60*1000 ミリ秒）を加算してJSTにする
+    var jstMs = now.getTime() + (9 * 60 * 60 * 1000);
+    return new Date(jstMs);
+  }
+
+  function formatDateJST(d) {
+    var y = d.getUTCFullYear();
+    var m = d.getUTCMonth() + 1;
+    var day = d.getUTCDate();
+    return y + '/' + m + '/' + day;
+  }
+
+  // GAQL用の日付フォーマット (yyyy-MM-dd)
+  function formatDateForQuery(d) {
+    var y = d.getUTCFullYear();
+    var m = ('0' + (d.getUTCMonth() + 1)).slice(-2);
+    var day = ('0' + d.getUTCDate()).slice(-2);
+    return y + '-' + m + '-' + day;
+  }
+
+  // 集計期間の計算（本日を含む過去30日間）
+  var jstToday = getJSTDate();
+  var endDate = new Date(jstToday); // 本日まで
+  var startDate = new Date(jstToday);
+  startDate.setUTCDate(startDate.getUTCDate() - 29); // 本日を含め30日前
+  var periodStart = formatDateJST(startDate);
+  var periodEnd = formatDateJST(endDate);
+  var periodText = periodStart + ' ～ ' + periodEnd + '（過去30日間）';
+
+  // GAQL用の日付文字列
+  var queryStartDate = formatDateForQuery(startDate);
+  var queryEndDate = formatDateForQuery(endDate);
+
+  // スプレッドシートを開く
+  var ss = SpreadsheetApp.openByUrl(SPREADSHEET_URL);
+  var sheet = ss.getSheetByName(sheetName);
+  if (!sheet) {
+    sheet = ss.insertSheet(sheetName);
+  }
+  // ※ sheet.clear() は削除 — 毎回クリアせず、既存データの下に追記する
+
+  // ヘッダー定義
+  var headers = [
+    '取得日',
+    '集計期間',
+    'アカウントID',
+    'アカウント名',
+    'キャンペーンID',
+    'キャンペーン名',
+    '配信ステータス',
+    '表示回数 (Imp)',
+    'クリック数',
+    '費用 (円)',
+    'コンバージョン数',
+    'クリック率 (CTR %)',
+    '平均クリック単価 (CPC)',
+    'コンバージョン単価 (CPA)',
+    'コンバージョン率 (CVR %)'
+  ];
+
+  // 初回のみ: シートが空ならヘッダーとレポート情報を書き込む
+  if (sheet.getLastRow() === 0) {
+    // 1行目: レポート情報
+    sheet.getRange(1, 1).setValue('【レポート集計期間】');
+    sheet.getRange(1, 2).setValue('自動蓄積レポート');
+    sheet.getRange(1, 1, 1, 2).setFontWeight('bold').setFontSize(12).setBackground('#E8F0FE');
+
+    // 2行目: ヘッダー
+    sheet.getRange(2, 1, 1, headers.length).setValues([headers]);
+    var headerRange = sheet.getRange(2, 1, 1, headers.length);
+    headerRange.setFontWeight('bold');
+    headerRange.setBackground('#4285F4');
+    headerRange.setFontColor('#FFFFFF');
+  }
+
+  // MCC配下のアカウントを取得
+  var accountIterator = AdsManagerApp.accounts().get();
+  var accounts = [];
+  while (accountIterator.hasNext()) {
+    accounts.push(accountIterator.next());
+  }
+  console.log('検出されたアカウント数: ' + accounts.length);
+
+  var rows = [];
+  var today = formatDateJST(jstToday);
+
+  for (var i = 0; i < accounts.length; i++) {
+    var account = accounts[i];
+    AdsManagerApp.select(account);
+    var accountName = account.getName();
+    var accountId = account.getCustomerId();
+    console.log('アカウント: ' + accountName + ' (' + accountId + ') のデータを取得中...');
+
+    // --------------------------------------------------------
+    // PART A: 効果測定データ付き（過去30日間にインプレッションがあるキャンペーン）
+    // --------------------------------------------------------
+    try {
+      var queryWithMetrics =
+          'SELECT ' +
+          '  campaign.id, ' +
+          '  campaign.name, ' +
+          '  campaign.status, ' +
+          '  metrics.impressions, ' +
+          '  metrics.clicks, ' +
+          '  metrics.cost_micros, ' +
+          '  metrics.conversions, ' +
+          '  metrics.ctr, ' +
+          '  metrics.average_cpc ' +
+          'FROM campaign ' +
+          'WHERE segments.date BETWEEN "' + queryStartDate + '" AND "' + queryEndDate + '" ' +
+          'AND campaign.status != "REMOVED"';
+
+      var searchResults = AdsApp.search(queryWithMetrics);
+      var metricsIds = {}; // 効果測定データがあるキャンペーンIDを記録
+
+      while (searchResults.hasNext()) {
+        var row = searchResults.next();
+        var campaign = row.campaign;
+        var metrics = row.metrics;
+
+        var cost = metrics.costMicros ? Math.round(metrics.costMicros / 1000000) : 0;
+        var clicks = metrics.clicks || 0;
+        var impressions = metrics.impressions || 0;
+        var conversions = metrics.conversions || 0;
+        var ctr = metrics.ctr ? (metrics.ctr * 100).toFixed(2) : '0.00';
+        var cpc = metrics.averageCpc ? Math.round(metrics.averageCpc / 1000000) : 0;
+        var cpa = conversions > 0 ? Math.round(cost / conversions) : '-';
+        var cvr = clicks > 0 ? ((conversions / clicks) * 100).toFixed(2) : '0.00';
+
+        metricsIds[campaign.id] = true;
+
+        rows.push([
+          today,
+          periodText,
+          accountId,
+          accountName,
+          campaign.id,
+          campaign.name,
+          campaign.status,
+          impressions,
+          clicks,
+          cost,
+          conversions,
+          ctr,
+          cpc,
+          cpa,
+          cvr
+        ]);
+      }
+    } catch (e) {
+      console.log('  効果測定データ取得でエラー: ' + e.message);
+    }
+
+    // --------------------------------------------------------
+    // PART B: 効果測定データなし（インプレッション0のキャンペーンも取得）
+    // --------------------------------------------------------
+    try {
+      var queryNoMetrics =
+          'SELECT ' +
+          '  campaign.id, ' +
+          '  campaign.name, ' +
+          '  campaign.status ' +
+          'FROM campaign ' +
+          'WHERE campaign.status != "REMOVED"';
+
+      var searchResults2 = AdsApp.search(queryNoMetrics);
+
+      while (searchResults2.hasNext()) {
+        var row2 = searchResults2.next();
+        var campaign2 = row2.campaign;
+
+        // PART Aで既に取得済みのキャンペーンはスキップ
+        if (metricsIds[campaign2.id]) {
+          continue;
+        }
+
+        rows.push([
+          today,
+          periodText,
+          accountId,
+          accountName,
+          campaign2.id,
+          campaign2.name,
+          campaign2.status,
+          0,   // 表示回数
+          0,   // クリック数
+          0,   // 費用
+          0,   // コンバージョン数
+          '0.00', // CTR
+          0,   // CPC
+          '-', // CPA
+          '0.00'  // CVR
+        ]);
+      }
+    } catch (e) {
+      console.log('  キャンペーン一覧取得でエラー: ' + e.message);
+    }
+  }
+
+  // 既存データの最終行を取得し、その次の行から追記する
+  var lastRow = sheet.getLastRow();
+  var startRow = lastRow + 1; // 既存データの次の行
+
+  // スプレッドシートへデータの一括書き込み（最終行の次から追記）
+  if (rows.length > 0) {
+    sheet.getRange(startRow, 1, rows.length, rows[0].length).setValues(rows);
+    console.log('✅ ' + rows.length + ' 件のキャンペーンデータを行 ' + startRow + ' から書き込みました。');
+  } else {
+    sheet.getRange(startRow, 1).setValue('データなし - ' + today);
+    console.log('⚠️ キャンペーンデータが0件でした。');
+  }
+
+  // 列幅の自動調整
+  for (var col = 1; col <= headers.length; col++) {
+    sheet.autoResizeColumn(col);
+  }
+
+  // スプレッドシートへの変更を強制保存（スケジュール実行時に必須）
+  SpreadsheetApp.flush();
+
+  console.log('=== レポート出力完了 ===');
+}
